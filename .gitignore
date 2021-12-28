@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+src/cleaning.R
+ESP2_msk_alt.grd
+ESP2_msk_alt.gri
+ESP2_msk_alt.vrt
+ESP_msk_alt.grd
+ESP_msk_alt.gri
+ESP_msk_alt.vrt
+gadm36_ESP_1_sp.rds
+refs/
+map/
