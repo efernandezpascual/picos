@@ -1,0 +1,218 @@
+"Plot","Taxon","Cover"
+"HA2-09","Androsace villosa",1
+"HI1-09","Androsace villosa",0.1
+"HI2-09","Androsace villosa",0.01
+"HA1-09","Androsace villosa",0.2
+"LC2-09","Androsace villosa",0.2
+"LC1-09","Androsace villosa",10
+"HI2-09","Anthyllis vulneraria",20
+"HA2-09","Anthyllis vulneraria",1
+"HA1-09","Anthyllis vulneraria",2
+"LB1-09","Anthyllis vulneraria",10
+"HI1-09","Anthyllis vulneraria",0.5
+"LB2-09","Anthyllis vulneraria",10
+"LC1-09","Anthyllis vulneraria",0.5
+"LC2-09","Anthyllis vulneraria",0.1
+"HA2-09","Arenaria erinacea",0.5
+"HA1-09","Arenaria erinacea",0.1
+"LB2-09","Arenaria moehringioides",0.1
+"LB1-09","Arenaria moehringioides",0.01
+"LB1-09","Armeria cantabrica",0.5
+"LB1-09","Carex ornithopoda",0.1
+"HI1-09","Carex sempervirens",0.01
+"LC2-09","Carex sempervirens",0.25
+"LC1-09","Carex sempervirens",15
+"LC1-09","Dethawia splendens subsp. cantabrica",0.01
+"HI1-09","Kobresia myosuroides",0.5
+"LB2-09","Erigeron alpinus",0.01
+"LC1-09","Euphrasia salisburgensis",0.01
+"LC2-09","Euphrasia salisburgensis",0.01
+"HA2-09","Festuca burnatii",0.1
+"LC2-09","Festuca burnatii",0.01
+"HA2-09","Festuca hystrix",25
+"HA1-09","Festuca hystrix",40
+"LC1-09","Festuca gr. rubra",0.1
+"HI2-09","Galium pyrenaicum",0.01
+"HI1-09","Galium pyrenaicum",0.01
+"LC2-09","Genista legionensis",0.1
+"LC2-09","Gypsophila repens",0.01
+"HI1-09","Gypsophila repens",0.5
+"HI2-09","Gypsophila repens",10
+"HI1-09","Helianthemum canum",0.7
+"LB2-09","Helianthemum canum",0.1
+"LC2-09","Helianthemum canum",0.2
+"HA2-09","Helianthemum canum",10
+"LC1-09","Helianthemum canum",15
+"HI2-09","Helianthemum canum",20
+"HA1-09","Helianthemum canum",5
+"LB1-09","Helianthemum canum",0.5
+"LC2-09","Helianthemum apenninum subsp. urrielense",0.01
+"LB1-09","Helianthemum apenninum subsp. urrielense",15
+"LB2-09","Helianthemum apenninum subsp. urrielense",15
+"HI1-09","Helictotrichon sedenense",0.1
+"LB1-09","Helictotrichon sedenense",0.5
+"LB2-09","Helictotrichon sedenense",5
+"HI2-09","Helictotrichon sedenense",5
+"HA2-09","Helictotrichon sedenense",0.01
+"LC1-09","Hippocrepis comosa",0.1
+"LB2-09","Iberis carnosa",0.01
+"HI1-09","Jasione cavanillesii",0.01
+"LB1-09","Jasione cavanillesii",0.01
+"LB2-09","Jasione cavanillesii",0.01
+"LC2-09","Jurinea humilis",0.1
+"HA2-09","Jurinea humilis",1
+"LC1-09","Jurinea humilis",0.1
+"HI1-09","Jurinea humilis",0.01
+"HA1-09","Koeleria vallesiana",1
+"HI2-09","Koeleria vallesiana",10
+"LC2-09","Koeleria vallesiana",0.1
+"LC1-09","Koeleria vallesiana",0.1
+"HI1-09","Koeleria vallesiana",0.01
+"HA2-09","Koeleria vallesiana",0.5
+"LB1-09","Minuartia verna",0.1
+"LB2-09","Minuartia verna",0.1
+"HA1-09","Minuartia verna",0.1
+"HA2-09","Minuartia verna",0.1
+"HI2-09","Minuartia verna",0.01
+"LC1-09","Minuartia verna",0.1
+"LC2-09","Minuartia verna",0.01
+"HI1-09","Phyteuma orbiculare",0.01
+"HI2-09","Phyteuma orbiculare",0.01
+"LB1-09","Plantago alpina",0.1
+"LB1-09","Poa alpina",0.1
+"LB1-09","Ranunculus carinthiacus",0.1
+"LB1-09","Ranunculus parnassiifolius subsp. favargeri",0.1
+"LB2-09","Ranunculus parnassiifolius subsp. favargeri",0.5
+"HI2-09","Ranunculus parnassiifolius subsp. favargeri",0.1
+"LB1-09","Salix breviserrata",10
+"LC1-09","Saxifraga conifera",0.01
+"LC2-09","Saxifraga conifera",0.01
+"LC2-09","Scilla verna",0.01
+"HA2-09","Sempervivum vicentei",0.1
+"HI2-09","Jacobaea boissieri",0.01
+"HI1-09","Jacobaea boissieri",0.2
+"LC1-09","Sesleria caerulea",0.1
+"LB1-09","Silene acaulis",10
+"LB2-09","Silene acaulis",0.1
+"HI2-09","Silene acaulis",0.1
+"HA2-09","Silene ciliata",0.1
+"LC1-09","Thymus praecox subsp. ligusticus",0.01
+"HI1-09","Thymus praecox subsp. ligusticus",0.5
+"HA2-09","Thymus praecox subsp. ligusticus",25
+"HI2-09","Thymus praecox subsp. ligusticus",1
+"LB2-09","Thymus praecox subsp. ligusticus",0.5
+"LB1-09","Thymus praecox subsp. ligusticus",0.2
+"HA1-09","Thymus praecox subsp. ligusticus",4
+"LC2-09","Thymus praecox subsp. ligusticus",0.2
+"LB1-09","Veronica nummularia",0.01
+"LB1-09","Viola riviniana",0.01
+"HA2-19","Androsace villosa",3
+"LC1-19","Androsace villosa",8
+"HI2-19","Androsace villosa",0.5
+"LC2-19","Androsace villosa",4
+"HA1-19","Androsace villosa",0.5
+"HI1-19","Androsace villosa",1
+"LB2-19","Anthyllis vulneraria",10
+"HI1-19","Anthyllis vulneraria",5
+"LC1-19","Anthyllis vulneraria",2
+"LC2-19","Anthyllis vulneraria",4
+"HI2-19","Anthyllis vulneraria",15
+"HA2-19","Anthyllis vulneraria",2
+"LB1-19","Anthyllis vulneraria",8
+"HA2-19","Arenaria erinacea",2
+"HA1-19","Arenaria erinacea",0.1
+"LB2-19","Arenaria moehringioides",0.5
+"LB1-19","Arenaria moehringioides",0.2
+"LB2-19","Arenaria purpurascens",0.1
+"LC2-19","Arenaria purpurascens",0.1
+"LB1-19","Armeria cantabrica",1
+"LB1-19","Carex ornithopoda",0.2
+"LC1-19","Carex sempervirens",20
+"LC2-19","Carex sempervirens",2
+"HI1-19","Carex sempervirens",2
+"LC1-19","Dethawia splendens subsp. cantabrica",0.1
+"HI1-19","Kobresia myosuroides",1
+"LB2-19","Erigeron alpinus",1
+"HI2-19","Euphrasia salisburgensis",0.5
+"LB2-19","Euphrasia salisburgensis",0.01
+"LC2-19","Euphrasia salisburgensis",0.5
+"LB1-19","Euphrasia salisburgensis",0.5
+"LC1-19","Euphrasia salisburgensis",0.5
+"HA2-19","Festuca hystrix",25
+"HA1-19","Festuca hystrix",30
+"LC2-19","Festuca gr. rubra",0.5
+"LC1-19","Festuca gr. rubra",1
+"LC2-19","Genista legionensis",2
+"LB1-19","Gentiana verna",0.2
+"HI1-19","Gypsophila repens",2
+"HI2-19","Gypsophila repens",8
+"LC2-19","Helianthemum canum",10
+"LC1-19","Helianthemum canum",5
+"HA1-19","Helianthemum canum",7
+"LB2-19","Helianthemum canum",1
+"HA2-19","Helianthemum canum",6
+"HI1-19","Helianthemum canum",7
+"LB1-19","Helianthemum canum",2
+"HI2-19","Helianthemum canum",20
+"HA1-19","Helictotrichon sedenense",0.2
+"LB1-19","Helianthemum apenninum subsp. urrielense",15
+"LB2-19","Helianthemum apenninum subsp. urrielense",8
+"LB2-19","Helictotrichon sedenense",6
+"HI1-19","Helictotrichon sedenense",3
+"HI2-19","Helictotrichon sedenense",7
+"LB1-19","Helictotrichon sedenense",26
+"LC1-19","Hippocrepis comosa",1
+"LB2-19","Iberis carnosa",0.1
+"LB1-19","Jasione cavanillesii",0.5
+"HI1-19","Jasione cavanillesii",0.01
+"HA2-19","Jurinea humilis",1
+"LC1-19","Jurinea humilis",1
+"LC2-19","Jurinea humilis",0.5
+"HI1-19","Jurinea humilis",0.1
+"HA1-19","Koeleria vallesiana",2
+"HA2-19","Koeleria vallesiana",4
+"HI1-19","Koeleria vallesiana",0.5
+"LC2-19","Koeleria vallesiana",4
+"LC1-19","Koeleria vallesiana",5
+"HI2-19","Koeleria vallesiana",2
+"HI1-19","Phyteuma orbiculare",0.1
+"LB2-19","Linaria alpina",0.005
+"HI2-19","Minuartia verna",0.5
+"LB2-19","Minuartia verna",1
+"HA1-19","Minuartia verna",0.25
+"LB1-19","Minuartia verna",1
+"HA2-19","Minuartia verna",0.5
+"LC2-19","Minuartia verna",0.5
+"HI2-19","Phyteuma orbiculare",0.2
+"LB1-19","Plantago alpina",0.3
+"LB1-19","Poa alpina",0.1
+"HA2-19","Potentilla crantzii",0.1
+"LB1-19","Ranunculus carinthiacus",0.01
+"HI2-19","Ranunculus parnassiifolius subsp. favargeri",0.5
+"LB2-19","Ranunculus parnassiifolius subsp. favargeri",2
+"LB1-19","Ranunculus parnassiifolius subsp. favargeri",0.5
+"LB1-19","Salix breviserrata",6
+"LC1-19","Saxifraga conifera",0.5
+"LC2-19","Saxifraga conifera",2
+"LC2-19","Scilla verna",2
+"LC1-19","Scilla verna",0.5
+"LB2-19","Sedum brevifolium",0.1
+"HA2-19","Sempervivum vicentei",1
+"HI2-19","Jacobaea boissieri",0.01
+"HI1-19","Jacobaea boissieri",1
+"HA2-19","Seseli montanum",0.5
+"LC1-19","Sesleria caerulea",15
+"LC2-19","Sesleria caerulea",0.5
+"LB2-19","Silene acaulis",1
+"LB1-19","Silene acaulis",5
+"HI2-19","Silene acaulis",0.5
+"HA2-19","Silene ciliata",0.25
+"LC1-19","Thymus praecox subsp. ligusticus",0.5
+"LC2-19","Thymus praecox subsp. ligusticus",3
+"HA1-19","Thymus praecox subsp. ligusticus",2
+"HI2-19","Thymus praecox subsp. ligusticus",3
+"LB2-19","Thymus praecox subsp. ligusticus",2
+"HA2-19","Thymus praecox subsp. ligusticus",8
+"LB1-19","Thymus praecox subsp. ligusticus",1.5
+"HI1-19","Thymus praecox subsp. ligusticus",0.5
+"LB2-19","Veronica nummularia",1
