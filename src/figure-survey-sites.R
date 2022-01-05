@@ -85,66 +85,19 @@ tPlots %>%
 
 ### Panel C - The Crosses
 
-img1 <- png::readPNG("map/survey-design.png")
+img1 <- png::readPNG("map/survey-design2.png")
 
-f3 <- grid::rasterGrob(img1, width = unit(120, "mm"), height = unit(43, "mm"), just = "centre")
-
-### Panel D - The Climographs
-
-read.csv("data/temporal-survey-temperatures.csv") %>%
-  mutate(Time = as.POSIXct(Time, tz = "UTC")) %>%
-  as_tbl_time(index = Time) %>%
-  arrange(Time) %>%
-  filter_time("2009" ~ "2018") %>%
-  mutate(m = month(Time)) %>%
-  group_by(Site, m) %>%
-  summarise(T = mean(Temperature)) -> ts # Monthly average temperature
-
-read.csv("data/temporal-survey-wp.csv") %>%
-  mutate(m = month(Time)) %>%
-  group_by(Site, m) %>%
-  summarise(WP = mean(WP)) -> wp # Monthly average water potential
-
-merge(ts, wp) %>%
-  mutate(Site = fct_relevel(Site,
-                            "Los Cazadores", "Hou Sin Tierri",
-                            "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
-  ggplot(aes(x = m)) +
-  facet_wrap(~ Site, nrow = 1) +
-  geom_bar(aes(y = -WP*10), stat = "identity", position = "dodge", fill = "dodgerblue4", size = 1.1) +
-  geom_line(aes(y = T), color = "darkred", size = .5) +
-  geom_point(aes(y = T), color = "darkred", size = .7) +
-  scale_y_continuous(sec.axis = sec_axis( trans = ~./10, name = "Mean monthly soil water potential (-MPa)")) +
-  ggthemes::theme_tufte() +
-  theme(plot.title = element_text(hjust = -.15, vjust = -1.5),
-        axis.ticks.y = element_line(colour = "darkred"),
-        axis.ticks.y.right = element_line(colour = "dodgerblue4"),
-        axis.text.y = element_text(colour = "darkred"),
-        axis.text.y.right = element_text(colour = "dodgerblue4"),
-        axis.title.y = element_text(colour = "darkred"),
-        axis.title.y.right = element_text(colour = "dodgerblue4"),
-        panel.background = element_rect(color = "grey96", fill = "grey96"),
-        strip.text = element_text(size = 10, color = "black"),
-        axis.text = element_blank(),
-        axis.title = element_text(size = 10),
-        legend.position = "none", strip.placement = "outside",
-        plot.margin = unit(c(0, 0.1, 0, 0), "cm")) +
-  geom_hline(yintercept = 0, linetype = "dashed") +
-  labs(x = "Calendar month (January to December)", y = "Mean monthly soil temperature (ºC)") +
-  labs(title = "(D) Site soil climate") +
-  scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12), ) -> f4; f4
+f3 <- grid::rasterGrob(img1, width = unit(35, "mm"), height = unit(133, "mm"), just = "centre")
 
 ### Combine panels
 
 cowplot::plot_grid(f1, f2, ncol = 1, rel_heights = c(57, 76)) -> plot1
-cowplot::plot_grid(f3, f4, ncol = 1, rel_heights = c(43, 88)) -> plot2
 
-cowplot::plot_grid(plot1, plot2, ncol = 2, rel_widths = c(60, 120)) -> fig
+cowplot::plot_grid(plot1, f3, ncol = 2, rel_widths = c(60, 35)) -> fig
 
 ### Save figure
 
 ggsave(fig, file = "results/figures/survey-sites.png", 
-       path = NULL, scale = 1, width = 182, height = 133, units = "mm", dpi = 600)
+       path = NULL, scale = 1, width = 95, height = 133, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/survey-sites.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 133, units = "mm", dpi = 600, compression = "lzw")

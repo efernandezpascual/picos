@@ -21,7 +21,7 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
   summarise(`Annual\ntemperature` = mean(T), # Annual Mean Temperature
             `Diurnal range` = mean(X - N), # Mean Diurnal Range (Mean of monthly (max temp - min temp))
             `Annual range` = max(X) - min(N), # Temperature Annual Range (BIO5-BIO6)
-            `Freezing\ndegrees-day` = sum(FDD), # FDD per year
+            `Freezing\ndegrees-day` = abs(sum(FDD)), # FDD per year
             `Growing\ndegrees-day` = sum(GDD)) -> # GDD per year
   micro
 
@@ -48,18 +48,19 @@ ggplot(pcaInds, aes(x = Dim.1, y = Dim.2)) +
   geom_vline(xintercept = 0, linetype = "dashed") +
   geom_segment(data = pcaVars, aes(x = 0, y = 0, xend = 3*Dim.1, yend = 3*Dim.2)) +
   ggthemes::theme_tufte() + 
-  geom_point(aes(fill = Site), size = 4, shape = 22) +
+  geom_point(aes(fill = Site), size = 6, shape = 22) +
   theme(legend.position = "top", 
         legend.title = element_blank(),
+        # legend.text = element_text(size = 12, color = "black"),
         panel.background = element_rect(color = "grey96", fill = "grey96"),
-        axis.title = element_text(size = 10),
-        axis.text = element_text(size = 10, color = "black"),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12, color = "black"),
         plot.margin = unit(c(0, 0.1, 0, 0), "cm")) +
   scale_x_continuous(name = paste("Axis 1 (", round(pca$eig[1, 2], 0),
                                   "% variance explained)", sep = "")) + 
   scale_y_continuous(name = paste("Axis 2 (", round(pca$eig[2, 2], 0), 
                                   "% variance explained)", sep = "")) +
-  geom_label(data = pcaVars, aes(x = 3*Dim.1, y = 3*Dim.2, label = Variable),  show.legend = FALSE, size = 2.5) +
+  geom_label(data = pcaVars, aes(x = 3*Dim.1, y = 3*Dim.2, label = Variable),  show.legend = FALSE, size = 4) +
   scale_color_manual(values = c("goldenrod", "forestgreen",  "royalblue", "darkorchid")) +
   scale_fill_manual(values = c("goldenrod", "forestgreen",  "royalblue", "darkorchid")) -> f1; f1
 
@@ -68,4 +69,4 @@ ggplot(pcaInds, aes(x = Dim.1, y = Dim.2)) +
 ggsave(f1, file = "results/figures/pca-temperatures.png", 
        path = NULL, scale = 1, width = 127, height = 118, units = "mm", dpi = 600)
 # ggsave(f1, file = "results/figures/pca-temperatures.tiff", device = grDevices::tiff, 
-#        path = NULL, scale = 1, width = 182, height = 160, units = "mm", dpi = 600, compression = "lzw")
+#        path = NULL, scale = 1, width = 182, height = 182, units = "mm", dpi = 600, compression = "lzw")

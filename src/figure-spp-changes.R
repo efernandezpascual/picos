@@ -1,3 +1,5 @@
+library(tidyverse)
+
 ### NMDS species scores
 
 read.csv("data/spatial-survey-species.csv") %>%
@@ -17,6 +19,29 @@ read.csv("data/spatial-survey-species.csv") %>%
   mutate(Species = paste(substr(G, 1, 3), substr(S, 1, 3), sep = "")) %>%
   dplyr::select(Taxon, Species, Dim.1, Dim.2) -> sppscores
 
+### SNCs
+
+read.csv("data/spatial-survey-temperatures.csv") %>%
+  mutate(Time = as.POSIXct(Time, tz = "UTC")) %>% 
+  group_by(Plot, Day = lubridate::floor_date(Time, "day")) %>%
+  summarise(T = mean(Temperature), X = max(Temperature), N = min(Temperature), n = length(Time)) %>% # Daily mean, max, min
+  mutate(FDD = ifelse(T < 0, T, 0)) %>% # Freezing degrees per day
+  mutate(GDD = ifelse(T >= 1, T, 0)) %>% # Growing degrees day per month https://link.springer.com/article/10.1007/s00035-021-00250-1
+  group_by(Plot, Month = lubridate::floor_date(Day, "month")) %>%
+  summarise(FDD = sum(FDD), # FDD per month
+            GDD = sum(GDD)) %>% # GDD per month
+  group_by(Plot) %>%
+  summarise(FDD = sum(FDD), # FDD per year
+            GDD = sum(GDD))  %>%
+  select(Plot, FDD, GDD) %>%
+  merge(read.csv("data/spatial-survey-species.csv")) %>%
+  group_by(Taxon) %>%
+  summarise(n = length(Plot),
+            GDD = weighted.mean(GDD, Cover),
+            FDD = abs(weighted.mean(FDD, Cover))) %>%
+  # filter(n > 4) %>%
+  arrange(Taxon) -> sncs
+
 ### Species changes
 
 read.csv("data/temporal-survey-matrices.csv") %>%
@@ -33,50 +58,33 @@ read.csv("data/temporal-survey-matrices.csv") %>%
   mutate(ChangeP = `19` / `09`) %>%
   arrange(Change) %>%
   na.omit %>%
-  merge(sppscores) -> changespp
+  merge(sppscores) %>%
+  merge(sncs) %>%
+  mutate(C = ifelse(Change < -5, "Decreasing frequency", "Minimal changes"),
+         C = ifelse(Change > 5, "Increasing frecuency", C))  -> changespp
 
-### Plot decreasing
-
-changespp %>%
-  filter(Change < -10) %>%
-  ggplot(aes(Dim.1, Dim.2)) +
-  geom_hline(yintercept = 0, linetype = "dashed") +
-  geom_vline(xintercept = 0, linetype = "dashed") +
-  geom_segment(data = envvars, aes(x = 0, y = 0, xend = .3*Dim.1, yend = .3*Dim.2)) +
-  geom_point(aes(size = abs(Change), fill = Change), shape = 21, show.legend = FALSE) +
-  geom_label(data = envvars, aes(x = .3*Dim.1, y = .3*Dim.2, label = Variable),  show.legend = FALSE, size = 4) +
-  geom_text(aes(y = Dim.2 +.03, label = Species), color =  "white", fontface = "italic", ) +
-  geom_text(aes(y = Dim.2 -.03, label = Change), color =  "white") +
-  scale_fill_gradient(high = "lightcoral", low = "firebrick2", na.value = NA) +
-  scale_size(range = c(22, 34)) +
-  coord_cartesian(xlim = c(-.6, .7), ylim = c(-.9, .7)) +
-  ggthemes::theme_tufte() + 
-  guides(fill = guide_legend(ncol = 2)) +
-  labs(title = "(B) Decreasing frequency spp.") +
-  scale_x_continuous(name = "NMDS1") + 
-  scale_y_continuous(name = "NMDS2") +
-  theme(legend.position = c(.5, .1), 
-        legend.title = element_blank(),
-        panel.background = element_rect(color = "grey96", fill = "grey96"),
-        axis.title = element_text(size = 10),
-        axis.text = element_text(size = 10, color = "black")) -> f2;f2
-
-### Plot increasing
+### Plot
 
 changespp %>%
-  ggplot(aes(Dim.1, Change)) +
-  geom_hline(yintercept = 0, linetype = "dashed") +
-  geom_vline(xintercept = 0, linetype = "dashed") +
-  geom_point(aes(size = abs(Change), fill = Change), shape = 21, show.legend = FALSE) +
-  scale_size(range = c(2, 45)) +
-  scale_fill_gradient2(midpoint = 0, mid = "white", high = "skyblue", low = "darkred") +
-  geom_text(data = filter(changespp, Change < -10 | Change > 10), aes(label = Species), color =  "black", fontface = "italic") +
+  ggplot(aes(GDD, FDD, fill = C)) +
+  geom_point(aes(size = abs(Change)), shape = 21, show.legend = TRUE) +
+  scale_size(range = c(2, 25)) +
+  scale_fill_manual(values = c("salmon2", "skyblue", "white")) +
+  geom_text(data = filter(changespp, Change < -5 | Change > 5), aes(label = Species), color =  "black", fontface = "italic", angle = 25, size = 3) +
   ggthemes::theme_tufte() + 
-  labs(title = "(C) Increasing frequency spp.") +
-  xlab("NMDS1") + 
-  ylab("Change (in 10x10 cm presences)") +
-  theme(legend.position = c(.5, .1), 
+  xlab("Growing degrees-day (cumulative > 1ºC)") + 
+  ylab("Freezing degrees-day (cumulative < 0ºC, absolute)") +
+  guides(size = "none", fill = guide_legend(override.aes = list(size = 5))) +
+  theme(legend.position = c(.79, .9), 
         legend.title = element_blank(),
+        legend.text = element_text(size = 12),
         panel.background = element_rect(color = "grey96", fill = "grey96"),
-        axis.title = element_text(size = 10),
-        axis.text = element_text(size = 10, color = "black")) -> f3;f3
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12, color = "black")) -> f1;f1
+
+### Save figure
+
+ggsave(f1, file = "results/figures/spp-changes.png", 
+       path = NULL, scale = 1, width = 127, height = 100, units = "mm", dpi = 600)
+# ggsave(f1, file = "results/figures/pca-temperatures.tiff", device = grDevices::tiff, 
+#        path = NULL, scale = 1, width = 182, height = 182, units = "mm", dpi = 600, compression = "lzw")
