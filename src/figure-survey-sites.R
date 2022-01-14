@@ -8,7 +8,7 @@ raster::raster("../#data/maps/picos/DEM/DEM.TIF") %>% # Map files are in my home
   rename(lon = x, lat = y, alt = DEM) -> dem 
 
 ### Site coordinates
-
+# prueba
 read.csv("data/temporal-survey-header.csv") %>%
   group_by(Site) %>%
   summarise(long = mean(ED5030TX), lat = mean(ED5030TY)) %>%
