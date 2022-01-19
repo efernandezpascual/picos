@@ -11,6 +11,12 @@ always_allow_html: true
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(vegan)
+load("../results/numerical/environmental-fit.R")
+load("../results/numerical/bioclim-correlations.R")
+```
+
 B Jiménez-Alfaro, E Fernández-Pascual, A Bueno, C Marcenó....¿?
 
 # Abstract (ME&B)
@@ -48,6 +54,20 @@ Along the 10 years of soil temperature monitoring, we found a general trend of i
 ## Plant diversity and microclimate
 
 In the temporal survey (2 plots per site, n =16), we recorded XX species in 2008 and XX in 2018. (species loss, gains)... Changes in species frequency were/were not correlated with XX and XX.... (Table 1) (Eduardo). In the spatial survey (20 plots per site, n = 80; including four plots placed in rocks with no plants) we recorded XX species. Changes in species composition were associated to GDD (NMDS axis 1) to represent a main gradient from the warmest to the coldest sites (Figure 4), and to FDD (NMDS2) in a gradient of snow versus frost winters. In the compositional space, the sites were poorly differentiated across the four sites (PERMANOVA, adonis) mainly by the effect of one site (Los Boches) with most plots places in the cold and frost margins. Etc.... (Borja).
+
+Results of the environmental fit:
+
+```{r}
+print(ef1)
+```
+
+Correlations between bioclimatic variables:
+
+```{r}
+print(biocor)
+```
+
+Let us keep GDD, bio7 and FDD for plotting NMDS (low autocorrelation, high r2 in environmental fit)
 
 ## Microclimatic ranges in time and space
 

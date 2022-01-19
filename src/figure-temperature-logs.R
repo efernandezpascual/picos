@@ -114,7 +114,7 @@ cowplot::plot_grid(f1, f2, f3, ncol = 1) -> fig
 ### Save figure
 
 ggsave(fig, file = "results/figures/temperature-logs.png", 
-       path = NULL, scale = 1, width = 182, height = 180, units = "mm", dpi = 600)
+       path = NULL, scale = 1, width = 182, height = 182, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/temperature-logs.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 160, units = "mm", dpi = 600, compression = "lzw")
 

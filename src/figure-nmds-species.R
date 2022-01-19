@@ -4,10 +4,27 @@ library(tidyverse)
 
 read.csv("data/spatial-survey-species.csv") %>%
   filter(Plot != "A03") %>%
-  filter(Plot != "D19") %>%
+  filter(Plot != "D19") -> speciesSS # Vegetation data from the spatial survey
+
+read.csv("data/temporal-survey-species.csv")  -> speciesTS # Vegetation data from the temporal survey
+ 
+rbind(speciesSS, speciesTS)  %>%
   spread(Taxon, Cover, fill = 0) %>%
   arrange(Plot) %>%
-  column_to_rownames(var = "Plot") -> species
+  column_to_rownames(var = "Plot") -> species # Merge species
+
+### Header data
+
+read.csv("data/spatial-survey-header.csv") %>% mutate(Survey = "Spatial") %>%
+  merge(read.csv("results/numerical/indices.csv")) -> headerSS # Header data from the spatial survey
+
+read.csv("results/numerical/indices.csv") %>%
+  filter(Survey == "Temporal") %>%
+  filter(Plot == "2018") %>% 
+  select(-Plot) %>% 
+  merge(read.csv("data/temporal-survey-header.csv")) -> headerTS # Header data from the temporal survey
+
+rbind(headerSS, headerTS) -> header # Merge header
 
 ### Do NMDS
 
@@ -21,8 +38,8 @@ vegan::scores(nmds, "sites") %>%
   data.frame() %>%
   rownames_to_column("Plot") %>%
   rename(Dim.1 = NMDS1, Dim.2 = NMDS2) %>%
-  merge(read.csv("data/spatial-survey-header.csv")) %>%
-  dplyr::select(Plot, Site, Dim.1, Dim.2) %>% 
+  merge(header) %>%
+  dplyr::select(Plot, Site, Survey, Dim.1, Dim.2) %>% 
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Hou Sin Tierri",
                             "Los Boches", "Hoyo Sin Tierra")) %>%
@@ -30,16 +47,9 @@ vegan::scores(nmds, "sites") %>%
 
 ### Species scores
 
-read.csv("data/spatial-survey-species.csv") %>%
-  group_by(Taxon) %>%
-  tally %>%
-  filter(n > 80 * .2) %>%
-  pull(Taxon) -> sppfreq
-
 vegan::scores(nmds, "species") %>%
   data.frame() %>%
   rownames_to_column("Taxon") %>%
-  # filter(Taxon %in% sppfreq) %>%
   rename(Dim.1 = NMDS1, Dim.2 = NMDS2) %>%
   mutate(Species = gsub(" gr\\.", "", Taxon)) %>%
   mutate(Species = gsub("apenninum subsp. ", "", Species)) %>%
@@ -49,33 +59,25 @@ vegan::scores(nmds, "species") %>%
 
 ### Environmental scores
 
-read.csv("data/spatial-survey-temperatures.csv") %>%
-  mutate(Time = as.POSIXct(Time, tz = "UTC")) %>% 
-  merge(read.csv("data/spatial-survey-header.csv")) %>%
-  group_by(Plot, Site, Day = lubridate::floor_date(Time, "day")) %>%
-  summarise(T = mean(Temperature), X = max(Temperature), N = min(Temperature), n = length(Time)) %>% # Daily mean, max, min
-  mutate(Snow = ifelse(X < 0.5 & N > -0.5, 1, 0)) %>% # Day is snow day or not
-  mutate(FreezeThaw = ifelse(X > 0.5 & N < -0.5, 1, 0)) %>% # Day with freeze-thaw cycles
-  mutate(FDD = ifelse(T < 0, T, 0)) %>% # Freezing degrees per day
-  mutate(GDD = ifelse(T >= 1, T, 0)) %>% # Growing degrees day per month https://link.springer.com/article/10.1007/s00035-021-00250-1
-  group_by(Plot, Site, Month = lubridate::floor_date(Day, "month")) %>%
-  summarise(FDD = sum(FDD), # FDD per month
-            GDD = sum(GDD)) %>% # GDD per month
-  group_by(Plot, Site) %>%
-  summarise(`Freezing\ndegrees-day` = abs(sum(FDD)), # FDD per year
-            `Growing\ndegrees-day` = sum(GDD)) %>%
-  group_by() %>%
-  arrange(Plot) %>%
+header %>%
   filter(Plot %in% sitescores$Plot) %>%
   column_to_rownames(var = "Plot") %>%
-  dplyr::select(-Site) -> env
+  dplyr::select(-Site) %>%
+  select(bio1:GDD) -> env
+
+env %>% cor() -> biocor
+
+save(biocor, file = "results/numerical/bioclim-correlations.R")
 
 vegan::envfit(nmds, env, permutations = 999, na.rm = TRUE) -> ef1
+
+save(ef1, file = "results/numerical/environmental-fit.R")
 
 ef1$vectors$arrows %>%
   data.frame() %>%
   dplyr::select(NMDS1, NMDS2) %>%
   rownames_to_column(var = "Variable") %>%
+  filter(Variable %in% c("GDD", "FDD", "bio7")) %>%
   rename(Dim.1 = NMDS1, Dim.2 = NMDS2) -> envvars
 
 ### Plot NMDS sites
@@ -84,26 +86,27 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_vline(xintercept = 0, linetype = "dashed") +
   geom_segment(data = envvars, aes(x = 0, y = 0, xend = Dim.1, yend = Dim.2)) +
-  geom_point(aes(fill = Site), size = 4, shape = 22, alpha = 0.3) +
-  ggrepel::geom_text_repel(data = sppscores, aes(label = Species), fontface = "italic", size = 4, segment.color = "transparent") +
+  geom_point(aes(fill = Site, shape = Survey, alpha = Survey), color = "black", size = 4) +
+  scale_shape_manual(values = c(21, 24)) +
+  scale_alpha_manual(values = c(0.4, 1), guide = FALSE) +
+  ggrepel::geom_text_repel(data = sppscores, aes(label = Species), color = "grey33", fontface = "italic", size = 4, segment.color = "transparent") +
   geom_label(data = envvars, aes(x = Dim.1, y = Dim.2, label = Variable),  show.legend = FALSE, size = 4) +
-  ggthemes::theme_tufte() + 
-  theme(legend.position = "top", 
+  ggthemes::theme_tufte() +
+  guides(fill=guide_legend(override.aes=list(shape = 24))) + 
+  theme(legend.position = "top", legend.box = "vertical", legend.margin = margin(),
         legend.title = element_blank(),
         legend.text = element_text(size = 12, color = "black"),
         panel.background = element_rect(color = "grey96", fill = "grey96"),
         axis.title = element_text(size = 12),
         axis.text = element_text(size = 12, color = "black")) +
   coord_cartesian(xlim = c(-1.1, 1), ylim = c(-1, 1)) +
-  # labs(title = "(B) Spatial survey - species") +
   scale_x_continuous(name = "NMDS1") + 
   scale_y_continuous(name = "NMDS2") +
-  scale_color_manual(values = c("goldenrod", "forestgreen",  "royalblue", "darkorchid")) +
   scale_fill_manual(values = c("goldenrod", "forestgreen",  "royalblue", "darkorchid")) +
-  annotate("label", x = -.8, y = -1, label = "Warm & Frozen", fill = "indianred", color = "white", size = 4) +
-  annotate("label", x = .7, y = -1, label = "Cold & Frozen", fill = "deepskyblue", color = "white", size = 4) +
-  annotate("label", x = -.8, y = 1, label = "Warm & Insulated", fill = "firebrick", color = "white", size = 4) +
-  annotate("label", x = .7, y = 1, label = "Cold & Insulated", fill = "slateblue3", color = "white", size = 4) -> f2; f2
+  annotate("label", x = -.8, y = -1, label = "Warm & Snow", fill = "indianred", color = "white", size = 4) +
+  annotate("label", x = .7, y = -1, label = "Cold & Snow", fill = "deepskyblue", color = "white", size = 4) +
+  annotate("label", x = -.8, y = 1, label = "Warm & Frost", fill = "firebrick", color = "white", size = 4) +
+  annotate("label", x = .7, y = 1, label = "Cold & Frost", fill = "slateblue3", color = "white", size = 4) -> f2; f2
 
 ### Save figure
 

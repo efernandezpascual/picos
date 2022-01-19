@@ -2,6 +2,21 @@ Microclimatic spatial variation buffers local warming in alpine
 vegetation
 ================
 
+``` r
+library(vegan)
+```
+
+    ## Loading required package: permute
+
+    ## Loading required package: lattice
+
+    ## This is vegan 2.5-7
+
+``` r
+load("../results/numerical/environmental-fit.R")
+load("../results/numerical/bioclim-correlations.R")
+```
+
 B Jiménez-Alfaro, E Fernández-Pascual, A Bueno, C Marcenó….¿?
 
 # Abstract (ME&B)
@@ -126,6 +141,44 @@ compositional space, the sites were poorly differentiated across the
 four sites (PERMANOVA, adonis) mainly by the effect of one site (Los
 Boches) with most plots places in the cold and frost margins. Etc….
 (Borja).
+
+Results of the environmental fit:
+
+``` r
+print(ef1)
+```
+
+    ## 
+    ## ***VECTORS
+    ## 
+    ##         NMDS1    NMDS2     r2 Pr(>r)    
+    ## bio1 -0.99791 -0.06455 0.7101  0.001 ***
+    ## bio2 -0.98404  0.17794 0.3025  0.001 ***
+    ## bio7 -0.81708  0.57653 0.1970  0.001 ***
+    ## Snw   0.45843 -0.88873 0.0108  0.621    
+    ## FDD   0.21476  0.97667 0.2636  0.001 ***
+    ## GDD  -0.99799  0.06343 0.6972  0.001 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## Permutation: free
+    ## Number of permutations: 999
+
+Correlations between bioclimatic variables:
+
+``` r
+print(biocor)
+```
+
+    ##            bio1       bio2        bio7         Snw          FDD          GDD
+    ## bio1  1.0000000  0.6511933  0.43158971 -0.17767609 -0.213585400  0.967643701
+    ## bio2  0.6511933  1.0000000  0.72981593 -0.28071103  0.211695371  0.741164174
+    ## bio7  0.4315897  0.7298159  1.00000000 -0.07280042  0.474693631  0.511701761
+    ## Snw  -0.1776761 -0.2807110 -0.07280042  1.00000000 -0.357965361 -0.243808478
+    ## FDD  -0.2135854  0.2116954  0.47469363 -0.35796536  1.000000000  0.001468051
+    ## GDD   0.9676437  0.7411642  0.51170176 -0.24380848  0.001468051  1.000000000
+
+Let us keep GDD, bio7 and FDD for plotting NMDS (low autocorrelation,
+high r2 in environmental fit)
 
 ## Microclimatic ranges in time and space
 
