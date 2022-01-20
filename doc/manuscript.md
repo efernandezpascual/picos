@@ -19,7 +19,7 @@ load("../results/numerical/bioclim-correlations.R")
 
 B Jiménez-Alfaro, E Fernández-Pascual, A Bueno, C Marcenó….¿?
 
-# Abstract (ME&B)
+# Abstract (ME\&B)
 
 Alpine vegetation is considered to respond to climate change through
 species distribution shifts with effects on community richness and
@@ -70,10 +70,8 @@ species pool of XX species (Jiménez-Alfaro et al. XXX). In 2008, we
 established a long-term ecological research program for monitoring soil
 climate and vegetation change. We selected four study sites along a
 north-south gradient, reflecting the main macroclimatic variation from
-oceanic to Mediterranean influence. In 2016, we additionally installed a
-Water potential logger (XXX) to characterize water stress in the four
-sites and to …. The sites were selected to… general design and
-description of sites… (Borja)
+oceanic to Mediterranean influence. The sites were selected to… general
+design and description of sites… (Borja)
 
 ## Vegetation and microclimatic data
 
@@ -88,7 +86,7 @@ obtain a continuous temperature record from 2008 to 2018. In 2018, we
 resampled the same plots in the same way to detect potential changes in
 species presence and frequency. The vegetation data from these surveys,
 together with the soil temperature collected in the four study sites
-during 10 years, represent the “temporal survey.” In 2019, we visited
+during 10 years, represent the “temporal survey”. In 2019, we visited
 the same areas to study the spatial variation of vegetation and
 microclimate around the previously sampled areas. Using the long-term
 temperature logger as the central point, we additionally placed 20
@@ -97,7 +95,7 @@ four cardinal directions (Figure 1C).. etc… (Borja)
 
 ## Data analysis
 
-([R Core Team 2020](#ref-RN2315))
+(R Core Team [2020](#ref-RN2315))
 
 Vegetation data + Temperature data (Eduardo)
 
@@ -124,20 +122,38 @@ latter also correlated with…. (Eduardo)
 
 ## Plant diversity and microclimate
 
+Across the whole study system, the five most frequent species were
+*Thymus praecox* subsp. *ligusticus* (83 occurences), *Anthyllis
+vulneraria* (73), *Koeleria vallesiana* (59), *Minuartia verna* (55) and
+*Helianthemum canum* (52).
+
 In the temporal survey (2 visits x 2 plots per site, n = 16) we recorded
-42 species in 2009 and 45 in 2019. Of the species recorded in 2009, we
+42 species in 2009 and 47 in 2019. Of the species recorded in 2009, we
 did not find again in 2019 the following three: *Festuca burnatii*,
-*Galium pyrenaicum* and *Viola riviniana*. Conversely, in 2019 we
-recorded six species that we had not seen in 2009: *Arenaria
-purpurascens*, *Gentiana verna*, *Potentilla crantzii*, *Sedum
-brevifolium* and *Seseli montanum*. Changes in species frequency
-were/were not correlated with XX and XX…. (Table 1) (Eduardo). In the
-spatial survey (20 plots per site, n = 80; including one plot placed in
-rocks with no vascular plants) we recorded 81 species, 37 of which were
-absent from the temporal survey plots. Across the whole study system,
-the five most frequent species were *Thymus praecox* subsp. *ligusticus*
-(83 occurences), *Anthyllis vulneraria* (73), *Koeleria vallesiana*
-(59), *Minuartia verna* (55) and *Helianthemum canum* (52).
+*Galium pyrenaicum* and *Iberis carnosa*. Conversely, in 2019 we
+recorded eight species that we had not seen in 2009: *Arenaria
+purpurascens*, *Lotus corniculatus*, *Potentilla crantzii*, *Sedum
+album*, *Sedum brevifolium*, *Seseli montanum*, *Silene ciliata* and
+*Solidago virgaurea*. Of these species that appeared or disappeared from
+the temporal survey plots, *Arenaria purpurascens* appeared in 12 10x10
+cm cells in 2019, while the rest of the cases amounted to less than 10
+cells. The five species with the highest decrease in frequency from 2009
+to 2019 (ignoring annual species and species that occurred in less than
+10 10x10 cm cells in 2009) were *Armeria cantabrica* (85% decrease in
+frequency, present in 13 cells in 2009), *Poa alpina* (-83%, 18 cells),
+*Salix breviserrata* (-48%, 25 cells), *Jurinea humilis* (-26%, 23
+cells) and *Ranunculus parnassiifolius* subsp. *favargeri* (-18%, 72
+cells). The five species with the highest increases (again, ignoring
+annual species and species that occurred in less than 10 10x10 cm cells
+in 2009) were *Minuartia verna* (+278%, 19 cells), *Helianthemum
+apenninum* subsp. *urrielense* (+87%, 63 cells), *Arenaria
+moehringioides* (+85%, 13 cells), *Saxifraga conifera* (+83%, 24 cells)
+and *Silene acaulis* (+39%, 18 cells).
+
+Changes in species frequency were/were not correlated with XX and XX….
+(Table 1) (Eduardo). In the spatial survey (20 plots per site, n = 80;
+including one plot placed in rocks with no vascular plants) we recorded
+81 species, 37 of which were absent from the temporal survey plots.
 
 Changes in species composition (**Fig. 4**) were associated to GDD (NMDS
 axis 1) to represent a main gradient from the warmest to the coldest
@@ -190,12 +206,12 @@ high r2 in environmental fit)
 …. (Eduardo) (quizás repensar esta parte, pero es importante mantenerla
 porque es la clave).
 
-<div id="refs" class="references csl-bib-body">
+<div id="refs" class="references">
 
-<div id="ref-RN2315" class="csl-entry">
+<div id="ref-RN2315">
 
-****R Core Team****. **2020**. <span class="nocase">R: a language and
-environment for statistical computing. Version 4.0.3.</span>
+**<span class="csl-no-strong">R Core Team</span>**. **2020**. R: a
+language and environment for statistical computing. Version 4.0.3.
 
 </div>
 
