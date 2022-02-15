@@ -1,6 +1,6 @@
 ---
 title: "Microclimatic spatial variation buffers local warming in alpine vegetation"
-output: github_document
+output: html_document
 bibliography: refs.bib
 csl: annals-of-botany.csl
 link-citations: yes
@@ -76,3 +76,25 @@ Let us keep GDD, bio7 and FDD for plotting NMDS (low autocorrelation, high r2 in
 ## Microclimatic ranges in time and space
 
 .... (Eduardo) (quizás repensar esta parte, pero es importante mantenerla porque es la clave).
+
+## Figures
+
+```{r fig1, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/survey-sites.png")
+```
+
+```{r fig2, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/temperature-logs.png")
+```
+
+```{r fig3, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/pca-temperatures.png")
+```
+
+```{r fig4, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/nmds-species.png")
+```
+
+```{r fig5, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/spp-changes.png")
+```

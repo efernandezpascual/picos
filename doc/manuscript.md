@@ -19,7 +19,7 @@ load("../results/numerical/bioclim-correlations.R")
 
 B Jiménez-Alfaro, E Fernández-Pascual, A Bueno, C Marcenó….¿?
 
-# Abstract (ME\&B)
+# Abstract (ME&B)
 
 Alpine vegetation is considered to respond to climate change through
 species distribution shifts with effects on community richness and
@@ -59,11 +59,11 @@ xxx
 
 ## Study system
 
-The study was conducted in the calcareous massif of Picos de Europa
-National Park, in northern Spain (Figure 1A). The study area is a
+The study was conducted in the central calcareous massif of the Picos de
+Europa National Park, in northern Spain (Figure 1A). The study area is a
 biodiversity hotspot for cold-adapted plants in the Iberian Peninsula
 and a biogeographical hub for Alpine and Mediterranean lineages in
-Western Europe (XXX). The main calcareous massif occupies c. 50
+Western Europe (XXX). The central calcareous massif occupies c. 50
 km<sup>2</sup> and support high diversity of ecosystems, with alpine
 vegetation mostly occurring between 1900 and 2400 m a.s.l., with a local
 species pool of XX species (Jiménez-Alfaro et al. XXX). In 2008, we
@@ -72,6 +72,27 @@ climate and vegetation change. We selected four study sites along a
 north-south gradient, reflecting the main macroclimatic variation from
 oceanic to Mediterranean influence. The sites were selected to… general
 design and description of sites… (Borja)
+
+<div class="figure">
+
+<img src="../results/figures/survey-sites.png" alt="**Figure 1** Diversity of dispersal units in plant species from mesic meadows: (a) Floret of *Cynosurus cristatus* (Poaceae); (b) floret of *Arrhenatherum elatius* (Poaceae); (c) seed of *Lathyrus pratensis* (Fabaceae); (d) legume of *Onobrychis viciifolia* (Fabaceae); (e) loment fragment of *Ornithopus perpusillus* (Fabaceae); (f) achene with pappus of *Centaurea scabiosa* (Asteraceae); (g) achene of *Ranunculus acris* (Ranunculaceae); (h) nutlet of *Prunella grandiflora* (Lamiaceae); (i) achene of *Knautia nevadensis* (Dipsacaceae); (j) perigynium of *Carex binervis* (Cyperaceae); (k) receptacle of *Sanguisorba minor* (Rosaceae); (l) mericarp of *Carum verticillatum* (Apiaceae); (m) seed of *Cerastium fontanum* (Caryophyllaceae); (n) seed of *Plantago lanceolata* (Plantaginaceae); (o) seed of *Rhinanthus angustifolius* (Orobanchaceae)." width="2244" />
+<p class="caption">
+**Figure 1** Diversity of dispersal units in plant species from mesic
+meadows: (a) Floret of *Cynosurus cristatus* (Poaceae); (b) floret of
+*Arrhenatherum elatius* (Poaceae); (c) seed of *Lathyrus pratensis*
+(Fabaceae); (d) legume of *Onobrychis viciifolia* (Fabaceae); (e) loment
+fragment of *Ornithopus perpusillus* (Fabaceae); (f) achene with pappus
+of *Centaurea scabiosa* (Asteraceae); (g) achene of *Ranunculus acris*
+(Ranunculaceae); (h) nutlet of *Prunella grandiflora* (Lamiaceae); (i)
+achene of *Knautia nevadensis* (Dipsacaceae); (j) perigynium of *Carex
+binervis* (Cyperaceae); (k) receptacle of *Sanguisorba minor*
+(Rosaceae); (l) mericarp of *Carum verticillatum* (Apiaceae); (m) seed
+of *Cerastium fontanum* (Caryophyllaceae); (n) seed of *Plantago
+lanceolata* (Plantaginaceae); (o) seed of *Rhinanthus angustifolius*
+(Orobanchaceae).
+</p>
+
+</div>
 
 ## Vegetation and microclimatic data
 
@@ -86,7 +107,7 @@ obtain a continuous temperature record from 2008 to 2018. In 2018, we
 resampled the same plots in the same way to detect potential changes in
 species presence and frequency. The vegetation data from these surveys,
 together with the soil temperature collected in the four study sites
-during 10 years, represent the “temporal survey”. In 2019, we visited
+during 10 years, represent the “temporal survey.” In 2019, we visited
 the same areas to study the spatial variation of vegetation and
 microclimate around the previously sampled areas. Using the long-term
 temperature logger as the central point, we additionally placed 20
@@ -95,7 +116,7 @@ four cardinal directions (Figure 1C).. etc… (Borja)
 
 ## Data analysis
 
-(R Core Team [2020](#ref-RN2315))
+([R Core Team 2020](#ref-RN2315))
 
 Vegetation data + Temperature data (Eduardo)
 
@@ -122,10 +143,15 @@ latter also correlated with…. (Eduardo)
 
 ## Plant diversity and microclimate
 
-Across the whole study system, the five most frequent species were
-*Thymus praecox* subsp. *ligusticus* (83 occurences), *Anthyllis
-vulneraria* (73), *Koeleria vallesiana* (59), *Minuartia verna* (55) and
-*Helianthemum canum* (52).
+Across the whole study system (temporal and spatial surveys) we recorded
+86 species of vascular plants (considering *Helianthemum apenninum*
+subsp. *urrielense* and *Helianthemum apenninum* subsp. *cantabricum* as
+separate species), representing % of the total species pool of the study
+region. The five most frequent species were *Thymus praecox* subsp.
+*ligusticus* (83 occurences), *Anthyllis vulneraria* (73), *Koeleria
+vallesiana* (59), *Minuartia verna* (55) and *Helianthemum canum* (52).
+Average species richness per 1m<sup>2</sup> plot was 13, with the
+richest plot having 25 species and the poorest one just two.
 
 In the temporal survey (2 visits x 2 plots per site, n = 16) we recorded
 42 species in 2009 and 47 in 2019. Of the species recorded in 2009, we
@@ -153,7 +179,7 @@ and *Silene acaulis* (+39%, 18 cells).
 Changes in species frequency were/were not correlated with XX and XX….
 (Table 1) (Eduardo). In the spatial survey (20 plots per site, n = 80;
 including one plot placed in rocks with no vascular plants) we recorded
-81 species, 37 of which were absent from the temporal survey plots.
+81 species, 36 of which were absent from the temporal survey plots.
 
 Changes in species composition (**Fig. 4**) were associated to GDD (NMDS
 axis 1) to represent a main gradient from the warmest to the coldest
@@ -206,12 +232,12 @@ high r2 in environmental fit)
 …. (Eduardo) (quizás repensar esta parte, pero es importante mantenerla
 porque es la clave).
 
-<div id="refs" class="references">
+<div id="refs" class="references csl-bib-body">
 
-<div id="ref-RN2315">
+<div id="ref-RN2315" class="csl-entry">
 
-**<span class="csl-no-strong">R Core Team</span>**. **2020**. R: a
-language and environment for statistical computing. Version 4.0.3.
+****R Core Team****. **2020**. <span class="nocase">R: a language and
+environment for statistical computing. Version 4.0.3.</span>
 
 </div>
 
