@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-library(vegan)
+library(vegan); library(tidyverse)
 load("../results/numerical/environmental-fit.R")
 load("../results/numerical/bioclim-correlations.R")
 ```
@@ -97,4 +97,13 @@ knitr::include_graphics("../results/figures/nmds-species.png")
 
 ```{r fig5, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
 knitr::include_graphics("../results/figures/spp-changes.png")
+```
+
+
+## Tables
+
+```{r echo = FALSE, fig.cap = "**Figure 1** Study system."}
+read.csv("../results/tables/T1 - Summary of the GLM models of species presence.csv", check.names = FALSE) %>%
+  kableExtra::kbl(caption = "Table 1 Summary of the GLM models of species presence") %>%
+  kableExtra::kable_classic(., full_width = F)
 ```
