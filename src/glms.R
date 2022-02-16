@@ -121,7 +121,7 @@ t1 %>%
 
 write.csv(models, "results/supplement/S3 - Output of the GLM models of species presence.csv", row.names = FALSE)
 
-### Figure
+### Table 1 - GLMS
 
 models %>%
   filter(`FDD p.value` < 0.05 | `GDD p.value` < 0.05) %>%
@@ -137,3 +137,16 @@ models %>%
   select(Taxon, `GDD estimate`, `GDD p`, `FDD estimate`, `FDD p`,
          rho2, `Cold & Frozen`:`Hot & Snowy`, `Frequency 2009`, `Frequency 2018`) %>%
   write.csv("results/tables/T1 - Summary of the GLM models of species presence.csv", row.names = FALSE)
+
+### Figure 5 extinctions
+
+models %>%
+  filter(`FDD p.value` < 0.05 | `GDD p.value` < 0.05) %>%
+  filter(rho2 > 0.15) %>%
+  select(Taxon, `Cold & Frozen`:`Hot & Snowy`) %>%
+  gather(Scenario, Predict, `Cold & Frozen`:`Hot & Snowy`) %>%
+  filter(Predict == 0) %>%
+  group_by(Scenario) %>%
+  tally %>%
+  ggplot(aes(reorder(Scenario, n), n)) +
+  geom_bar(stat = "identity", position = "dodge")

@@ -68,29 +68,4 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
 
 rbind(dfSpace, dfTime) -> bioclim
 
-bioclim %>% write.csv("results/numerical/indices.csv", row.names = FALSE)
-
-### SNCs
-
-read.csv("data/spatial-survey-species.csv") %>%
-  merge(bioclim, by = "Plot") %>%
-  select(-Survey) -> o1
- 
-read.csv("data/temporal-survey-header.csv") %>%
-  select(Plot, Site) %>%
-  merge(read.csv("data/temporal-survey-species.csv")) -> o2
-
-bioclim %>%
-  filter(Survey == "Temporal") %>%
-  gather(Trait, Value, bio1:GDD) %>%
-  group_by(Site, Trait) %>%
-  summarise(Value = mean(Value)) %>%
-  spread(Trait, Value) %>%
-  merge(o2) -> o3
-
-rbind(o1, o3) %>%
-  gather(Trait, Value, bio1:GDD) %>%
-  group_by(Taxon, Trait) %>%
-  summarise(Value = weighted.mean(Value, Cover), n = length(Plot)) %>%
-  spread(Trait, Value) %>%
-  write.csv("results/numerical/snc.csv", row.names = FALSE)
+bioclim %>% write.csv("results/supplement/S1 - Bioclimatic indices.csv", row.names = FALSE)

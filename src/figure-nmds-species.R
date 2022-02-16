@@ -103,10 +103,10 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   scale_x_continuous(name = "NMDS1") + 
   scale_y_continuous(name = "NMDS2") +
   scale_fill_manual(values = c("goldenrod", "forestgreen",  "royalblue", "darkorchid")) +
-  annotate("label", x = -.8, y = -1, label = "Warm & Snow", fill = "indianred", color = "white", size = 4) +
-  annotate("label", x = .7, y = -1, label = "Cold & Snow", fill = "deepskyblue", color = "white", size = 4) +
-  annotate("label", x = -.8, y = 1, label = "Warm & Frost", fill = "firebrick", color = "white", size = 4) +
-  annotate("label", x = .7, y = 1, label = "Cold & Frost", fill = "slateblue3", color = "white", size = 4) -> f2; f2
+  annotate("label", x = -.8, y = -1, label = "Hot & Snowy", fill = "indianred", color = "white", size = 4) +
+  annotate("label", x = .7, y = -1, label = "Cold & Snowy", fill = "deepskyblue", color = "white", size = 4) +
+  annotate("label", x = -.8, y = 1, label = "Hot & Frozen", fill = "firebrick", color = "white", size = 4) +
+  annotate("label", x = .7, y = 1, label = "Cold & Frozen", fill = "slateblue3", color = "white", size = 4) -> f2; f2
 
 ### Save figure
 
