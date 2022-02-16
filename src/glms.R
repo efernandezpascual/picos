@@ -10,7 +10,7 @@ read.csv("data/spatial-survey-species.csv") %>%
   select(Plot, Taxon, Presence) %>%
   spread(Taxon, Presence, fill = 0) %>%
   gather(Taxon, Presence, -Plot) %>%
-  merge(read.csv("results/numerical/indices.csv")) -> presences
+  merge(read.csv("results/supplement/S1 - Bioclimatic indices.csv")) -> presences
 
 ### Get GLM coefficients
 
@@ -58,12 +58,12 @@ presences %>%
 ### Scenarios
 
 merge(
-read.csv("results/numerical/indices.csv") %>%
+read.csv("results/supplement/S1 - Bioclimatic indices.csv") %>%
   select(Survey, GDD) %>%
   filter(Survey == "Temporal") %>%
   # group_by(Survey) %>%
   filter(GDD == max(GDD) | GDD == min(GDD)),
-read.csv("results/numerical/indices.csv") %>%
+read.csv("results/supplement/S1 - Bioclimatic indices.csv") %>%
   select(Survey, FDD) %>%
   filter(Survey == "Temporal") %>%
   # group_by(Survey) %>%
@@ -148,5 +148,64 @@ models %>%
   filter(Predict == 0) %>%
   group_by(Scenario) %>%
   tally %>%
-  ggplot(aes(reorder(Scenario, n), n)) +
-  geom_bar(stat = "identity", position = "dodge")
+  mutate(Scenario = gsub(" & ", "\n", Scenario)) %>%
+  ggplot(aes(reorder(Scenario, n), n, fill = Scenario)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  labs(title = "(A) Species extinctions per scenario") +
+  xlab("Scenario") +
+  ylab("Number of species extinctions") +
+  ggthemes::theme_tufte() +
+  scale_fill_manual(values = c("slateblue3", "deepskyblue", "firebrick", "indianred")) +
+  scale_y_continuous(breaks = seq(0, 10, by = 1)) +
+  theme(legend.position = "none", 
+        legend.direction = "vertical",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 16, face = "italic"), 
+        panel.background = element_rect(color = "grey96", fill = "grey96"),
+        strip.text = element_text(size = 12),
+        strip.placement = "ouside",
+        axis.title.x = element_text(size = 12, color = "black"),
+        axis.title.y = element_text(size = 12, color = "black"),
+        axis.text.x = element_text(size = 10, color = c("deepskyblue", "slateblue3", "indianred", "firebrick"), 
+                                   face = "bold"),
+        axis.text.y = element_text(size = 10, color = "black")) -> f5a; f5a
+
+### Indices trends figure
+
+read.csv("results/supplement/S1 - Bioclimatic indices.csv") %>%
+  filter(Survey == "Temporal") %>%
+  group_by(Plot) %>%
+  summarise(`Freezing degrees-day` = mean(FDD), `Growing degrees-day` = mean(GDD)) %>%
+  gather(Trait, Value, `Growing degrees-day`:`Freezing degrees-day`) %>%
+  mutate(Trait = fct_relevel(Trait, "Growing degrees-day", "Freezing degrees-day")) %>%
+  ggplot(aes(as.numeric(Plot), Value, fill = Trait)) +
+  facet_wrap(~ Trait, nrow = 2, scales = "free_y") +
+  geom_area(alpha = 0.6, color = "black") +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(title = "(B) Trends in GDD and FDD") +
+  xlab("Year") +
+  ylab(expression(paste("Degrees-day (absolute ºC)"))) +
+  ggthemes::theme_tufte() +
+  scale_fill_manual(values = c("gold", "darkorchid")) +
+  scale_x_continuous(breaks = seq(2009, 2018, by = 1)) +
+  theme(strip.background = element_rect(colour = "grey96", fill = "grey96"),
+        legend.position = "none", 
+        legend.direction = "vertical",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 16, face = "italic"), 
+        panel.background = element_rect(color = "grey96", fill = "grey96"),
+        strip.text = element_text(size = 12),
+        strip.placement = "ouside",
+        axis.title.x = element_text(size = 12, color = "black"),
+        axis.title.y = element_text(size = 12, color = "black"),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.text.y = element_text(size = 10, color = "black")) -> f5b; f5b
+  
+### Save figure
+
+cowplot::plot_grid(f5a, f5b) -> f5
+
+ggsave(f5, file = "results/figures/F5 - Extinctions.png", 
+       path = NULL, scale = 1, width = 89*2, height = 89, units = "mm", dpi = 600)
+
