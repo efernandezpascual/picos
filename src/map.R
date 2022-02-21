@@ -97,7 +97,7 @@ cowplot::plot_grid(plot1, f3, ncol = 2, rel_widths = c(60, 35)) -> fig
 
 ### Save figure
 
-ggsave(fig, file = "results/figures/survey-sites.png", 
+ggsave(fig, file = "results/figures/F1 - Map.png", 
        path = NULL, scale = 1, width = 95, height = 133, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/survey-sites.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 133, units = "mm", dpi = 600, compression = "lzw")

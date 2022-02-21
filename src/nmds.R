@@ -4,27 +4,15 @@ library(tidyverse)
 
 read.csv("data/spatial-survey-species.csv") %>%
   filter(Plot != "A03") %>%
-  filter(Plot != "D19") -> speciesSS # Vegetation data from the spatial survey
-
-read.csv("data/temporal-survey-species.csv")  -> speciesTS # Vegetation data from the temporal survey
- 
-rbind(speciesSS, speciesTS)  %>%
+  filter(Plot != "D19")  %>%
   spread(Taxon, Cover, fill = 0) %>%
   arrange(Plot) %>%
-  column_to_rownames(var = "Plot") -> species # Merge species
-
+  column_to_rownames(var = "Plot") -> species 
 ### Header data
 
-read.csv("data/spatial-survey-header.csv") %>% mutate(Survey = "Spatial") %>%
-  merge(read.csv("results/numerical/indices.csv")) -> headerSS # Header data from the spatial survey
-
-read.csv("results/numerical/indices.csv") %>%
-  filter(Survey == "Temporal") %>%
-  filter(Plot == "2018") %>% 
-  select(-Plot) %>% 
-  merge(read.csv("data/temporal-survey-header.csv")) -> headerTS # Header data from the temporal survey
-
-rbind(headerSS, headerTS) -> header # Merge header
+read.csv("data/spatial-survey-header.csv") %>% 
+  mutate(Survey = "Spatial") %>%
+  merge(read.csv("results/supplement/S1 - Bioclimatic indices.csv")) -> header 
 
 ### Do NMDS
 
@@ -77,7 +65,7 @@ ef1$vectors$arrows %>%
   data.frame() %>%
   dplyr::select(NMDS1, NMDS2) %>%
   rownames_to_column(var = "Variable") %>%
-  filter(Variable %in% c("GDD", "FDD", "bio7")) %>%
+  filter(Variable %in% c("GDD", "FDD")) %>%
   rename(Dim.1 = NMDS1, Dim.2 = NMDS2) -> envvars
 
 ### Plot NMDS sites
@@ -86,13 +74,13 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_vline(xintercept = 0, linetype = "dashed") +
   geom_segment(data = envvars, aes(x = 0, y = 0, xend = Dim.1, yend = Dim.2)) +
-  geom_point(aes(fill = Site, shape = Survey, alpha = Survey), color = "black", size = 4) +
+  geom_point(aes(fill = Site, alpha = Survey), color = "black", size = 4, shape = 21) +
   scale_shape_manual(values = c(21, 24)) +
   scale_alpha_manual(values = c(0.4, 1), guide = FALSE) +
   ggrepel::geom_text_repel(data = sppscores, aes(label = Species), color = "grey33", fontface = "italic", size = 4, segment.color = "transparent") +
   geom_label(data = envvars, aes(x = Dim.1, y = Dim.2, label = Variable),  show.legend = FALSE, size = 4) +
   ggthemes::theme_tufte() +
-  guides(fill=guide_legend(override.aes=list(shape = 24))) + 
+  guides(fill=guide_legend(override.aes=list(shape = 21))) + 
   theme(legend.position = "top", legend.box = "vertical", legend.margin = margin(),
         legend.title = element_blank(),
         legend.text = element_text(size = 12, color = "black"),
@@ -102,15 +90,15 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   coord_cartesian(xlim = c(-1.1, 1), ylim = c(-1, 1)) +
   scale_x_continuous(name = "NMDS1") + 
   scale_y_continuous(name = "NMDS2") +
-  scale_fill_manual(values = c("goldenrod", "forestgreen",  "royalblue", "darkorchid")) +
-  annotate("label", x = -.8, y = -1, label = "Hot & Snowy", fill = "indianred", color = "white", size = 4) +
-  annotate("label", x = .7, y = -1, label = "Cold & Snowy", fill = "deepskyblue", color = "white", size = 4) +
-  annotate("label", x = -.8, y = 1, label = "Hot & Frozen", fill = "firebrick", color = "white", size = 4) +
-  annotate("label", x = .7, y = 1, label = "Cold & Frozen", fill = "slateblue3", color = "white", size = 4) -> f2; f2
+  scale_fill_manual(values = c("gold", "limegreen",  "deepskyblue1", "darkorchid")) +
+  annotate("label", x = -.8, y = 1, label = "Hot & Snowy", fill = "indianred", color = "white", size = 4) +
+  annotate("label", x = .7, y = 1, label = "Cold & Snowy", fill = "deepskyblue", color = "white", size = 4) +
+  annotate("label", x = -.8, y = -1, label = "Hot & Frozen", fill = "firebrick", color = "white", size = 4) +
+  annotate("label", x = .7, y = -1, label = "Cold & Frozen", fill = "slateblue3", color = "white", size = 4) -> f4; f4
 
 ### Save figure
 
-ggsave(f2, file = "results/figures/nmds-species.png", 
+ggsave(f4, file = "results/figures/F4 - NMDS.png", 
        path = NULL, scale = 1, width = 182, height = 182, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/nmds-species.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182 height = 182, units = "mm", dpi = 600, compression = "lzw")
