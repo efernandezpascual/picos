@@ -6,7 +6,21 @@ bioclim %>%
   gather(Trait, Value, bio1:GDD) %>%
   group_by(Trait, Site, Survey) %>%
   filter(Trait %in% c("GDD", "FDD")) %>%
-  summarise(Delta = max(Value) - min(Value)) %>%
+  summarise(Delta = max(Value) - min(Value)) -> diffs
+
+diffs %>%
+  spread(Survey, Delta) %>%
+  filter(Trait == "FDD") -> fdd
+
+t.test(fdd$Spatial, fdd$Temporal, paired = TRUE, alternative = "greater")
+
+diffs %>%
+  spread(Survey, Delta) %>%
+  filter(Trait == "GDD") -> gdd
+
+t.test(gdd$Spatial, gdd$Temporal, paired = TRUE, alternative = "greater")
+
+diffs %>%
   group_by(Trait, Survey) %>%
   summarise(Mean = mean(Delta), SE = sd(Delta)/sqrt(4)) %>%
   group_by() %>%

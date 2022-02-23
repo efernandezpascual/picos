@@ -51,7 +51,7 @@ header %>%
   filter(Plot %in% sitescores$Plot) %>%
   column_to_rownames(var = "Plot") %>%
   dplyr::select(-Site) %>%
-  select(bio1:GDD) -> env
+  select(FDD:GDD) -> env
 
 env %>% cor() -> biocor
 
