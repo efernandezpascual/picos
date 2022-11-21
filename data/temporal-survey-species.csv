@@ -1,73 +1,73 @@
 "Plot","Taxon","Cover"
 "HA2-09","Androsace villosa",1
-"HI1-09","Androsace villosa",0.1
+"HI1-09","Androsace villosa",1
 "HI2-09","Androsace villosa",0.01
 "HA1-09","Androsace villosa",0.2
-"LC2-09","Androsace villosa",0.2
+"LC2-09","Androsace villosa",20
 "LC1-09","Androsace villosa",10
 "HI2-09","Anthyllis vulneraria",20
 "HA2-09","Anthyllis vulneraria",1
 "HA1-09","Anthyllis vulneraria",2
 "LB1-09","Anthyllis vulneraria",10
-"HI1-09","Anthyllis vulneraria",0.5
+"HI1-09","Anthyllis vulneraria",5
 "LB2-09","Anthyllis vulneraria",10
 "LC1-09","Anthyllis vulneraria",0.5
-"LC2-09","Anthyllis vulneraria",0.1
+"LC2-09","Anthyllis vulneraria",10
 "HA2-09","Arenaria erinacea",0.5
 "HA1-09","Arenaria erinacea",0.1
 "LB2-09","Arenaria moehringioides",0.1
 "LB1-09","Arenaria moehringioides",0.01
 "LB1-09","Armeria cantabrica",0.5
 "LB1-09","Carex ornithopoda",0.1
-"HI1-09","Carex sempervirens",0.01
-"LC2-09","Carex sempervirens",0.25
+"HI1-09","Carex sempervirens",0.1
+"LC2-09","Carex sempervirens",25
 "LC1-09","Carex sempervirens",15
 "LC1-09","Dethawia splendens subsp. cantabrica",0.01
-"HI1-09","Kobresia myosuroides",0.5
+"HI1-09","Kobresia myosuroides",5
 "LB2-09","Erigeron alpinus",0.01
 "LC1-09","Euphrasia salisburgensis",0.01
-"LC2-09","Euphrasia salisburgensis",0.01
+"LC2-09","Euphrasia salisburgensis",1
 "HA2-09","Festuca burnatii",0.1
-"LC2-09","Festuca burnatii",0.01
+"LC2-09","Festuca burnatii",1
 "HA2-09","Festuca hystrix",25
 "HA1-09","Festuca hystrix",40
 "LC1-09","Festuca gr. rubra",0.1
 "HI2-09","Galium pyrenaicum",0.01
-"HI1-09","Galium pyrenaicum",0.01
-"LC2-09","Genista legionensis",0.1
-"LC2-09","Gypsophila repens",0.01
-"HI1-09","Gypsophila repens",0.5
+"HI1-09","Galium pyrenaicum",0.1
+"LC2-09","Genista legionensis",10
+"LC2-09","Gypsophila repens",1
+"HI1-09","Gypsophila repens",5
 "HI2-09","Gypsophila repens",10
-"HI1-09","Helianthemum canum",0.7
+"HI1-09","Helianthemum canum",7
 "LB2-09","Helianthemum canum",0.1
-"LC2-09","Helianthemum canum",0.2
+"LC2-09","Helianthemum canum",20
 "HA2-09","Helianthemum canum",10
 "LC1-09","Helianthemum canum",15
 "HI2-09","Helianthemum canum",20
 "HA1-09","Helianthemum canum",5
 "LB1-09","Helianthemum canum",0.5
-"LC2-09","Helianthemum apenninum subsp. urrielense",0.01
+"LC2-09","Helianthemum apenninum subsp. urrielense",1
 "LB1-09","Helianthemum apenninum subsp. urrielense",15
 "LB2-09","Helianthemum apenninum subsp. urrielense",15
-"HI1-09","Helictotrichon sedenense",0.1
+"HI1-09","Helictotrichon sedenense",1
 "LB1-09","Helictotrichon sedenense",0.5
 "LB2-09","Helictotrichon sedenense",5
 "HI2-09","Helictotrichon sedenense",5
 "HA2-09","Helictotrichon sedenense",0.01
 "LC1-09","Hippocrepis comosa",0.1
 "LB2-09","Iberis carnosa",0.01
-"HI1-09","Jasione cavanillesii",0.01
+"HI1-09","Jasione cavanillesii",0.1
 "LB1-09","Jasione cavanillesii",0.01
 "LB2-09","Jasione cavanillesii",0.01
-"LC2-09","Jurinea humilis",0.1
+"LC2-09","Jurinea humilis",10
 "HA2-09","Jurinea humilis",1
 "LC1-09","Jurinea humilis",0.1
-"HI1-09","Jurinea humilis",0.01
+"HI1-09","Jurinea humilis",0.1
 "HA1-09","Koeleria vallesiana",1
 "HI2-09","Koeleria vallesiana",10
-"LC2-09","Koeleria vallesiana",0.1
+"LC2-09","Koeleria vallesiana",10
 "LC1-09","Koeleria vallesiana",0.1
-"HI1-09","Koeleria vallesiana",0.01
+"HI1-09","Koeleria vallesiana",0.1
 "HA2-09","Koeleria vallesiana",0.5
 "LB1-09","Minuartia verna",0.1
 "LB2-09","Minuartia verna",0.1
@@ -75,8 +75,8 @@
 "HA2-09","Minuartia verna",0.1
 "HI2-09","Minuartia verna",0.01
 "LC1-09","Minuartia verna",0.1
-"LC2-09","Minuartia verna",0.01
-"HI1-09","Phyteuma orbiculare",0.01
+"LC2-09","Minuartia verna",1
+"HI1-09","Phyteuma orbiculare",0.1
 "HI2-09","Phyteuma orbiculare",0.01
 "LB1-09","Plantago alpina",0.1
 "LB1-09","Poa alpina",0.1
@@ -86,24 +86,24 @@
 "HI2-09","Ranunculus parnassiifolius subsp. favargeri",0.1
 "LB1-09","Salix breviserrata",10
 "LC1-09","Saxifraga conifera",0.01
-"LC2-09","Saxifraga conifera",0.01
-"LC2-09","Scilla verna",0.01
+"LC2-09","Saxifraga conifera",1
+"LC2-09","Scilla verna",1
 "HA2-09","Sempervivum vicentei",0.1
 "HI2-09","Jacobaea boissieri",0.01
-"HI1-09","Jacobaea boissieri",0.2
+"HI1-09","Jacobaea boissieri",2
 "LC1-09","Sesleria caerulea",0.1
 "LB1-09","Silene acaulis",10
 "LB2-09","Silene acaulis",0.1
 "HI2-09","Silene acaulis",0.1
 "HA2-09","Silene ciliata",0.1
 "LC1-09","Thymus praecox subsp. ligusticus",0.01
-"HI1-09","Thymus praecox subsp. ligusticus",0.5
+"HI1-09","Thymus praecox subsp. ligusticus",5
 "HA2-09","Thymus praecox subsp. ligusticus",25
 "HI2-09","Thymus praecox subsp. ligusticus",1
 "LB2-09","Thymus praecox subsp. ligusticus",0.5
 "LB1-09","Thymus praecox subsp. ligusticus",0.2
 "HA1-09","Thymus praecox subsp. ligusticus",4
-"LC2-09","Thymus praecox subsp. ligusticus",0.2
+"LC2-09","Thymus praecox subsp. ligusticus",20
 "LB1-09","Veronica nummularia",0.01
 "LB1-09","Viola riviniana",0.01
 "HA2-19","Androsace villosa",3

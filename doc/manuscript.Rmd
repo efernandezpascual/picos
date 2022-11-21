@@ -1,13 +1,23 @@
 ---
 title: "Microclimatic spatial variation buffers local warming in alpine vegetation"
 output: html_document
+bibliography: refs.bib
+csl: annals-of-botany.csl
+link-citations: yes
+always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-B Jiménez-Alfaro, E Fernández-Pascual, A Bueno, C Marcenó….¿?
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+library(vegan); library(tidyverse)
+load("../results/numerical/environmental-fit.R")
+load("../results/numerical/bioclim-correlations.R")
+```
+
+B Jiménez-Alfaro, E Fernández-Pascual, A Bueno, C Marcenó....¿?
 
 # Abstract (ME&B)
 
@@ -19,30 +29,96 @@ xxx
 
 # Methods
 
+We conducted all analysis with R [@RN2315], and the code for analysis and creation of the figures and manuscript is available at GitHub (see Data Availability Statement).
+
 ## Study system
 
-The study was conducted in the calcareous massif of Picos de Europa National Park, in northern Spain (Figure 1A). The study area is a biodiversity hotspot for cold-adapted plants in the Iberian Peninsula and a biogeographical hub for Alpine and Mediterranean lineages in Western Europe (XXX). The main calcareous massif occupies c. 50 km2 and support high diversity of ecosystems, with alpine vegetation mostly occurring between 1900 and 2400 m a.s.l., with a local species pool of XX species (Jiménez-Alfaro et al. XXX). In 2008, we established a long-term ecological research program for monitoring soil climate and vegetation change. We selected four study sites along a north-south gradient, reflecting the main macroclimatic variation from oceanic to Mediterranean influence. In 2016, we additionally installed a Water potential logger (XXX) to characterize water stress in the four sites and to ….  The sites were selected to… general design and description of sites… (Borja)
-
-> Empiezo a pensar que sería mejor quitar esto, por mucho que me fastidie, y guardarnos el tema del WP para otro paper junto con lo de Omaña. Eso simplificaría el gráfico (de otro modo, tendría más lógica ponerlo con la Figura 1, porque en realidad no hacemos nada con esto)
+The study was conducted in the central calcareous massif of the Picos de Europa National Park, in northern Spain (**Fig. 1A**). The study area is a biodiversity hotspot for cold-adapted plants in the Iberian Peninsula and a biogeographical hub for Alpine and Mediterranean lineages in Western Europe (XXX). The central calcareous massif occupies c. 50 km^2^ and supports a high diversity of ecosystems, with alpine vegetation mostly occurring between 1900 and 2400 m a.s.l., with a local species pool of XX species (Jiménez-Alfaro et al. XXX). In 2008, we established a long-term ecological research program for monitoring soil climate and vegetation change. We selected four study sites along a north-south gradient (**Fig. 1B**), reflecting the main macroclimatic variation from Atlantic to Mediterranean influence. The sites were selected to... general design and description of sites... (Borja)
 
 ## Vegetation and microclimatic data
 
-In each site, we buried a temperature logger (XXXX) at 5 cm depth  in a relatively flat and homogeneous vegetation patch. We surveyed the plant community in two replicated plots of 1 m2 separated 1 m from the logger, identifying species composition and estimating relative cover in %. In each plot, we installed a grid template of 100 microplots (10 x 10 cm each) to sample species frequency according to the standard methodology of GLORIA (XXX). The loggers were replaced by new ones, when needed, to obtain a continuous temperature record from 2008 to 2018. In 2018, we resampled the same plots in the same way to detect potential changes in species presence and frequency. The vegetation data from these surveys, together with the soil temperature collected in the four study sites during 10 years, represent the “temporal survey”. In 2019, we visited the same areas to study the spatial variation of vegetation and microclimate around the previously sampled areas. Using the long-term temperature logger as the central point, we additionally placed 20 ibuttons (XXX) in 20 plots of 1 m2 separated 10 m from each other in the four cardinal directions (Figure 1C).. etc… (Borja)
+*Temporal survey.* In each site, we buried a temperature logger (M-Log5W, GeoPrecision, Ettlingen, Germany; accuracy: +/- 0.1 ºC at 0 ºC, resolution: 0.01 ºC, records each hour) at 5 cm depth in a relatively flat and homogeneous vegetation patch. We surveyed the plant community in two replicated plots of 1 m^2^ separated 1 m from the logger, identifying species composition of vascular plants and estimating relative cover in %. In each plot, we installed a grid template of 100 microplots (10 x 10 cm each) to sample species frequency according to the standard methodology of GLORIA (XXX). The loggers were replaced by new ones, when needed, to obtain a continuous temperature record from 2008 to 2018. In 2018, we resampled the same plots in the same way to detect potential changes in species presence and frequency. The vegetation data from these surveys, together with the soil temperature collected in the four study sites during 10 years, represent the "temporal survey". 
 
-## Data analysis
+> En este punto podríamos comentar que el long-term monitoring incluye otros cuatro sitios, algo más diferentes, que por ser más diferentes no los consideramos en este estudio, pero que añadimos los datos en supplementario. Así, quedan publicados.
 
-Vegetation data + Temperature data (Eduardo)
+*Spatial survey.* In 2018, we visited the same areas to study the spatial variation of vegetation and microclimate around the previously sampled areas. Using the long-term temperature logger as the central point, we additionally placed 20 iButtons (Thermochron, iButton, Newbury, UK; accuracy: +/- 0.5 ºC from -10 ºC to +65 ºC, resolution: 0.5 ºC, records each 4 hours) in 20 plots of 1 m^2^ separated 10 m from each other in the four cardinal directions (**Fig. 1C**). At each of the 20 plots, we identified vascular plants and estimated their relative cover in %. In 2019 we came back to download the data of the iButtons. These data, together with the vegetation data of the iButton plots, is the "spatial survey".
+
+## Bioclimatic indices
+
+We used the microclimatic data of the temporal and spatial surveys to calculate several bioclimatic indices. We did this for each year of the temporal survey (4 sites * 10 years) and each of the 80 spatial plots (4 sites x 20 plots). The spatial data series did not cover a full year, and were missing part of August and September. Thus, for comparison, we also removed this period from the temporal data before calculating the indices. Additionally, for the temporal survey (hourly records), we kept only the same recording hours as in the spatial survey (records each 4 hours).
+
+The bioclimatic indices were the following: (1) bio1 = annual mean temperature; (2) bio2 = mean diurnal range,i.e. the mean of the monthly differences between maximum and minimum temperatures; (3) bio7 = temperature annual range; i.e. the difference between the maximum temperature of the warmest month and the minimum temperature of the coldest month; (4) snow = the number of days of snow cover, considered to be those days in which the maximum temperature was below 0.5 ºC and the minimum temperature was above -0.5 ºC; (5) GDD = growing degrees-day, i.e. the sum of daily mean temperatures for days in which the mean temperature was above 1 ºC; (6) FDD = freezing degrees-day, i.e. the sum of daily mean temperatures for days in which the mean temperature was below 0 ºC. The indices bio1, bio2 and bio7 follow the definitions of WorldClim [@RN5064]. For GDD, we used the 1 ºC threshold for the growing season, following Bürli et al. [-@RN5065]. For FDD, we transformed the values from negative to positive, so the interpretation would be easier (i.e. higher values equal more freezing). The bioclimatic indices are provided as supplementary material **S1**.
+
+Before proceeding with further analysis, we conducted a principal component analysis (PCA) [@RN3166] of the bioclimatic indices for the spatial survey, to identify the main patterns in microclimatic variability. Results of the PCA are shown in supplementary material **S2**. In summary, the first axis of variation represented a gradient of increasing thermicity, with higher values of GDD, bio1, bio2 and bio7. The second axis represented a gradient of increasing freezing, with higher values of FDD. Snow length was mostly associated to the third axis. For ease of interpretation, we kept only GDD and FDD for further analysis. GDD and FDD were not correlated (r = -0.03) while GDD was correlated to bio1 (r = 0.97), bio2 (r = 0.76) and bio7 (r = 0.45).
+
+## Simulation of species extinctions
+
+We modeled species occurrence at the micro-site level as a function of the bioclimatic indices GDD and FDD, using the data of the spatial survey. First, we used non-metric multidimensional scaling (NMDS) with environmental fitting [@RN3388] to visualize the patterns of change in vegetation, and their relation to GDD and FDD. 
+
+Then, we used Generalized Linear Models (GLMs, binomial family) to model species presence (1 or 0) in each of the spatial plots (n = 78, we removed two plots with no vascular plants) as a response to the plot's GDD and FDD. We only did this for species with at least 10 presences in the plots. We only kept models in which at least one of the two bioclimatic indices had a significant effect size (p < 0.05) and for which the value of McFadden's pseudo R^2^ [@RN5066] was higher than 0.15. For readers unfamiliar with McFadden's pseudo R^2^, we point out that it tends to have lower values than R^2^ in ordinary least squares regression, and that values between 0.2 and 0.4 represent excellent fit [@RN5067].
+
+To construct scenarios of climatic changes, we used the temporal survey data (10 years, 2009-2018) to describe situations in which the extreme values of today would become the new average. To do so, we calculated, for GDD and FDD, the maximum and minimum values recorded in the entire period. With the resulting four values, we created four scenarios: hot and snowy (max GDD = 2069 ºC, min FDD = 0 ºC), hot and frozen (max GDD = 2069 ºC, max FDD = 247 ºC), cold and snowy (min GDD = 570 ºC, min FDD = 0 ºC) and cold and frozen (min GDD = 570 ºC, max FDD = 247 ºC). We used the GLM models to predict the probably of presence for each species and scenario, considering that a probability of 0 in a given scenario would mean the extinction of the species in said scenario.
 
 # Results
 
 ## Microclimatic variation
 
-Along the 10 years of soil temperature monitoring, we found a general trend of increasing temperature, especially in the southwest and warmest site (Hoyo sin Tierra) (Figure 3). Two of the sites (Los Cazadores and Los Boches) showed a consistent pattern of continuous snow cover during winter (reflected by temperature records around 0º C). In contrast, the two other sites (Hoy Sin Tierri and Hoyo Sin Tierra) showed frost temperatures during most winters (although they may not be constant and intermixed with short snow periods). Maximum temperatures were… Soil temperature corresponding to the spatial surveys also showed high variation within sites (Figure 3). In the four sites we found plots with contrasting patterns of snow cover and frost during winter, reflected by…  When looking at the whole microclimatic variation among plots (Figure 4), we found that the four sites were represented by a wide range of temperatures, with the exception of one site (Los Cazadores). The two main axes of variation were mainly related to FDD and GDD, the latter also correlated with…. (Eduardo)
+After 10 years of soil temperature monitoring (**Fig. 2A**), we found that two of the sites (Los Cazadores and Los Boches) showed a consistent pattern of continuous snow cover during winter (i.e. snowbed conditions reflected by temperature records around 0 ºC). In contrast, the two other sites (Ḥou Sin Tierri and Hoyo Sin Tierra) showed frost temperatures during most winters (i.e. fellfield conditions). The length of snow cover went from 72 days at Hoyo Sin Tierra to 193 days at Los Boches. Mean annual temperature ranged from 3.8 ºC (Los Boches) to 6.2 ºC (Hoyo Sin Tierra). The average annual range went from 19.4 ºC (Los Boches) to 23.8 ºC (Hoyo Sin Tierra), and the diurnal range from 2 ºC (Los Boches) to 3 ºC (Ḥou Sin Tierri). The absolute maximum was 27.4 ºC, reached at Hoyo Sin Tierra in July 2015, while the absolute minimum was -12 ºC at Ḥou Sin Tierri in December 2016. Average annual GDD were lowest at Los Boches (930 ºC) and highest at Hoyo Sin Tierra (1,711 ºC). FDD were low at Los Cazadores (3 ºC) and Los Boches (26 ºC), and high at Ḥou Sin Tierri (89 ºC) and Hoyo Sin Tierra (100 ºC). 
 
-## Plant diversity and microclimate
+Soil temperature corresponding to the spatial surveys (**Fig. 2B**) showed high variation within sites. In the four sites we found plots representing both snowbed and fellfield conditions. Within the plots of a same site, the length of snow cover could go from non-existent (i.e. 0 days under snow and frost temperatures during the whole year) to as long as 8 months (with a maximum of 234 days, from November to July). The annual range of temperatures went from 17.8 ºC to 30.3 ºC, and the diurnal range from 1.6 ºC to 5.5 ºC. The absolute maximum was 33 ºC, the absolute minimum -12 ºC. GDD ranged from 517 ºC to 1,612 ºC, and FDD from 0 ºC to 206 ºC.
 
-In the temporal survey (2 plots per site, n =16), we recorded XX species in 2008 and XX in 2018. (species loss, gains)… Changes in species frequency were/were not correlated with XX and XX…. (Table 1) (Eduardo). In the spatial survey (20 plots per site, n = 80; including four plots placed in rocks with no plants) we recorded XX species. Changes in species composition were associated to GDD (NMDS axis 1) to represent a main gradient from the warmest to the coldest sites (Figure 4), and to FDD (NMDS2) in a gradient of snow versus frost winters. In the compositional space, the sites were poorly differentiated across the four sites (PERMANOVA, adonis) mainly by the effect of one site (Los Boches) with most plots places in the cold and frost margins. Etc…. (Borja). 
+To compare the width of the microclimatic variability in time and space we took, for each site, the difference between the maximum and minimums values of GDD and FDD in time (maxi and min values in 10 years per site) and space (max and min values in 20 plots per site) (**Fig. 3A**). For GDD, the spatial difference was larger than the temporal one, but the difference was only marginally different (paired t-test, one.sided, t = 1.945, df = 3, p-value = 0.073). For FDD, the two differences were not significantly different (paired t-test, one.sided, t = -0.29029, df = 3, p-value = 0.6047).
 
-## Microclimatic ranges in time and space
+> Quizás sería mejor quitar este último párrafo y la figura 3, y centrarse en los modelos, la parte de time vs. space no es nada concluyente. Quizás describirla mejor, dentro del estilo de los dos párrafos anteriores.
 
-…. (Eduardo) (quizás repensar esta parte, pero es importante mantenerla porque es la clave).
+## Plant diversity
+
+Across the whole study system (temporal and spatial surveys) we recorded 86 species of vascular plants (considering *Helianthemum apenninum* subsp. *urrielense* and *Helianthemum apenninum* subsp. *cantabricum* as separate species), representing % of the total species pool of the study region. Of these, 81 species were in the spatial survey plots, and 48 in the temporal survey plots. The five most frequent species were *Thymus praecox* subsp. *ligusticus* (83 occurences), *Anthyllis vulneraria* (73), *Koeleria vallesiana* (59), *Minuartia verna* (55) and *Helianthemum canum* (52). Average species richness per 1m^2^ plot was 13, with the richest plot having 25 species and the poorest one just two. 
+
+In the temporal survey (2 visits x 2 plots per site, n = 16) we recorded 42 species in 2009 and 47 in 2019. Of the species recorded in 2009, we did not find again in 2019 the following three: *Festuca burnatii*, *Galium pyrenaicum* and *Iberis carnosa*. Conversely, in 2019 we recorded eight species that we had not seen in 2009: *Arenaria purpurascens*, *Lotus corniculatus*, *Potentilla crantzii*, *Sedum album*, *Sedum brevifolium*, *Seseli montanum*, *Silene ciliata* and *Solidago virgaurea*. Of these species that appeared or disappeared from the temporal survey plots, *Arenaria purpurascens* appeared in 12 10x10 cm cells in 2019, while the rest of the cases amounted to less than 10 cells. The five species with the highest decrease in frequency from 2009 to 2019 (ignoring annual species and species that occurred in less than 10 10x10 cm cells in 2009) were *Armeria cantabrica* (85% decrease in frequency, present in 13 cells in 2009), *Poa alpina* (-83%, 18 cells), *Salix breviserrata* (-48%, 25 cells), *Jurinea humilis* (-26%, 23 cells) and *Ranunculus parnassiifolius* subsp. *favargeri* (-18%, 72 cells). The five species with the highest increases (again, ignoring annual species and species that occurred in less than 10 10x10 cm cells in 2009) were *Minuartia verna* (+278%, 19 cells), *Helianthemum apenninum* subsp. *urrielense* (+87%, 63 cells), *Arenaria moehringioides* (+85%, 13 cells), *Saxifraga conifera* (+83%, 24 cells) and *Silene acaulis* (+39%, 18 cells).
+
+## Species responses to microclimate
+
+Changes in species composition (**Fig. 4**) were associated to GDD (NMDS axis 1, p < 0.001, R^2^ = 0.778) to represent a main gradient from the warmest to the coldest microsites, and to FDD (NMDS2, p < 0.001, R^2^ = 0.330) in a gradient of snow versus frost microsites In the compositional space, the sites were poorly differentiated along the first axis, although Los Boches occupied the cold and frozen space.
+
+Of the 81 species in the spatial plots, 36 had more than 10 occurrences, and we included them in the GLM modeling (full model results in supplementary material **S3**). For 16 of these species we produced models that we considered satisfactory (i.e. at least one of the two bioclimatic indices had a significant effect size and the value of McFadden's pseudo R^2^ was higher than 0.15) (**Table 1**). We found that some species survived only in the hot scenarios (e.g. *Androsace villosa*), the cold scenario (e.g. *Festuca glacialis*) or the snowy scenarios (e.g. *Alchemilla catalaunica*). The cold & snowy scenario produced the lowest number of species extinctions and the hot & frozen scenario the most extinctions, with the cold & frozen and the hot & snowy scenarios producing intermediate numbers of extinctions (**Fig. 5**).
+
+# DATA AVAILABILITY
+
+The original data, R code for the analysis and creation of the manuscript can be accessed at the GitHub repository https://github.com/efernandezpascual/picos. A version of record of the repository is deposited in Zenodo.
+
+# LITERATURE CITED
+
+::: {#refs}
+:::
+
+## Figures
+
+```{r fig1, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/F1 - Map.png")
+```
+
+```{r fig2, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/F2 - Temperature logs.png")
+```
+
+```{r fig3, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/F3 - Space vs time.png")
+```
+
+```{r fig4, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/F4 - NMDS.png")
+```
+
+```{r fig5, echo = FALSE, fig.pos = "H", fig.cap = "**Figure 1** Study system."}
+knitr::include_graphics("../results/figures/F5 - Extinctions.png")
+```
+
+
+## Tables
+
+```{r echo = FALSE, fig.cap = "**Figure 1** Study system."}
+read.csv("../results/tables/T1 - Summary of the GLM models of species presence.csv", check.names = FALSE) %>%
+  kableExtra::kbl(caption = "Table 1 Summary of the GLM models of species presence") %>%
+  kableExtra::kable_classic(., full_width = F)
+```
