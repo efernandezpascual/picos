@@ -51,7 +51,7 @@ header %>%
   filter(Plot %in% sitescores$Plot) %>%
   column_to_rownames(var = "Plot") %>%
   dplyr::select(-Site) %>%
-  select(FDD:GDD) -> env
+  dplyr::select(FDD, GDD, Snw) -> env
 
 env %>% cor() -> biocor
 
@@ -65,7 +65,8 @@ ef1$vectors$arrows %>%
   data.frame() %>%
   dplyr::select(NMDS1, NMDS2) %>%
   rownames_to_column(var = "Variable") %>%
-  filter(Variable %in% c("GDD", "FDD")) %>%
+  filter(Variable %in% c("GDD", "FDD", "Snw")) %>%
+  mutate(Variable = fct_recode(Variable, "Snow" = "Snw")) %>%
   rename(Dim.1 = NMDS1, Dim.2 = NMDS2) -> envvars
 
 ### Plot NMDS sites
@@ -81,25 +82,26 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   geom_label(data = envvars, aes(x = Dim.1, y = Dim.2, label = Variable),  show.legend = FALSE, size = 4) +
   ggthemes::theme_tufte() +
   guides(fill=guide_legend(override.aes=list(shape = 21))) + 
-  theme(legend.position = "top", legend.box = "vertical", legend.margin = margin(),
+  theme(text = element_text(family = "sans"),
+        legend.position = "right", legend.box = "vertical", legend.margin = margin(),
         legend.title = element_blank(),
         legend.text = element_text(size = 12, color = "black"),
-        panel.background = element_rect(color = "grey96", fill = "grey96"),
+        panel.background = element_rect(color = "black", fill = NULL),
         axis.title = element_text(size = 12),
         axis.text = element_text(size = 12, color = "black")) +
   coord_cartesian(xlim = c(-1.1, 1), ylim = c(-1, 1)) +
   scale_x_continuous(name = "NMDS1") + 
   scale_y_continuous(name = "NMDS2") +
-  scale_fill_manual(values = c("gold", "limegreen",  "deepskyblue1", "darkorchid")) +
+  scale_fill_manual(values = c("gold", "#B3EE3A",  "#40E0D0", "#551A8B")) +
   annotate("label", x = -.8, y = 1, label = "Hot & Snowy", fill = "indianred", color = "white", size = 4) +
   annotate("label", x = .7, y = 1, label = "Cold & Snowy", fill = "deepskyblue", color = "white", size = 4) +
-  annotate("label", x = -.8, y = -1, label = "Hot & Frozen", fill = "firebrick", color = "white", size = 4) +
-  annotate("label", x = .7, y = -1, label = "Cold & Frozen", fill = "slateblue3", color = "white", size = 4) -> f4; f4
+  annotate("label", x = -.8, y = -1, label = "Hot & Freezing", fill = "firebrick", color = "white", size = 4) +
+  annotate("label", x = .7, y = -1, label = "Cold & Freezing", fill = "slateblue3", color = "white", size = 4) -> f4; f4
 
 ### Save figure
 
 ggsave(f4, file = "results/figures/F4 - NMDS.png", 
-       path = NULL, scale = 1, width = 182, height = 182, units = "mm", dpi = 600)
+       path = NULL, scale = 1, width = 182, height = 120, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/nmds-species.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182 height = 182, units = "mm", dpi = 600, compression = "lzw")
 
