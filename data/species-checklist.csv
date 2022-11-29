@@ -1,4 +1,5 @@
 "Taxon","Family","Chorology","Lifeform","Clade","F","K","L","N","R","T"
+"Agrostis schleicheri","Poaceae","Other","Hemicryptophyte","Angiosperms",6,5,7,3,7,4
 "Alchemilla catalaunica","Rosaceae","Endemic","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
 "Androsace villosa","Primulaceae","Alpine","Chamaephyte","Angiosperms",5,5,8,3,7,4
 "Anemone pavoniana","Ranunculaceae","Endemic","Geophyte","Angiosperms",5,5,8,3,7,4
@@ -24,7 +25,6 @@
 "Eryngium bourgatii","Apiaceae","Mediterranean","Hemicryptophyte","Angiosperms",5,5,8,4,6,5
 "Euphorbia pyrenaica","Euphorbiaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,7,4
 "Euphrasia salisburgensis","Orobanchaceae","Alpine","Therophyte","Angiosperms",5,5,8,3,7,4
-"Festuca burnatii","Poaceae","Endemic","Hemicryptophyte","Angiosperms",4,5,8,3,7,4
 "Festuca glacialis","Poaceae","Endemic","Hemicryptophyte","Angiosperms",5,6,8,3,7,3
 "Festuca gr. rubra","Poaceae","Other","Hemicryptophyte","Angiosperms",7,4,7,4,6,6
 "Festuca hystrix","Poaceae","Mediterranean","Hemicryptophyte","Angiosperms",4,5,8,3,7,5
@@ -40,7 +40,6 @@
 "Helianthemum apenninum subsp. cantabricum","Cistaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,7,5
 "Helianthemum apenninum subsp. urrielense","Cistaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,7,5
 "Helianthemum canum","Cistaceae","Other","Chamaephyte","Angiosperms",5,5,8,3,7,5
-"Helianthemum nummularium","Cistaceae","Other","Chamaephyte","Angiosperms",5,5,7,4,6,6
 "Helictotrichon sedenense","Poaceae","Alpine","Hemicryptophyte","Angiosperms",5,6,8,3,7,4
 "Herniaria glabra","Caryophyllaceae","Other","Therophyte","Angiosperms",5,5,8,3,5,5
 "Hippocrepis comosa","Fabaceae","Other","Chamaephyte","Angiosperms",5,5,8,3,7,5

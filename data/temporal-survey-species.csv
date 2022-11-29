@@ -1,4 +1,6 @@
 "Plot","Taxon","Cover"
+"HA2-09","Agrostis schleicheri",0.1
+"LC2-09","Agrostis schleicheri",1
 "HA2-09","Androsace villosa",1
 "HI1-09","Androsace villosa",1
 "HI2-09","Androsace villosa",0.01
@@ -27,8 +29,6 @@
 "LB2-09","Erigeron alpinus",0.01
 "LC1-09","Euphrasia salisburgensis",0.01
 "LC2-09","Euphrasia salisburgensis",1
-"HA2-09","Festuca burnatii",0.1
-"LC2-09","Festuca burnatii",1
 "HA2-09","Festuca hystrix",25
 "HA1-09","Festuca hystrix",40
 "LC1-09","Festuca gr. rubra",0.1
