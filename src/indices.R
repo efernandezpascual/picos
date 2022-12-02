@@ -69,3 +69,13 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
 rbind(dfSpace, dfTime) -> bioclim
 
 bioclim %>% write.csv("results/supplement/S1 - Bioclimatic indices.csv", row.names = FALSE)
+
+bioclim %>% filter(Survey == "Temporal") %>%
+  gather(Trait, Value, bio1:GDD) %>%
+  group_by(Trait, Site) %>%
+  summarise(m = mean(Value)) %>%
+  data.frame
+
+read.csv("data/temporal-survey-temperatures.csv") %>%
+  group_by(Site) %>%
+  filter(Temperature == max(Temperature) | Temperature == min(Temperature))
