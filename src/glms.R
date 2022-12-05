@@ -82,7 +82,7 @@ presences %>%
   group_by(Taxon) %>%
   do(glms.predicts(., scenarios)) %>%
   mutate(Scenario = paste(ifelse(GDD == max(GDD), "Hot", "Cold"),
-                           ifelse(FDD == max(FDD), "Frozen", "Snowy"),
+                           ifelse(FDD == max(FDD), "Freezing", "Snowy"),
                            sep = " & "),
          Predict = 100 * (round(Predict, 2))) %>%
   select(Taxon, Scenario, Predict) %>%
@@ -135,7 +135,7 @@ models %>%
          `FDD estimate` = round(`FDD estimate`, 2),
          `GDD estimate` = round(`GDD estimate`, 2)) %>%
   select(Taxon, `GDD estimate`, `GDD p`, `FDD estimate`, `FDD p`,
-         rho2, `Cold & Frozen`:`Hot & Snowy`, `Frequency 2009`, `Frequency 2018`) %>%
+         rho2, `Cold & Freezing`:`Hot & Snowy`, `Frequency 2009`, `Frequency 2018`) %>%
   write.csv("results/tables/T1 - Summary of the GLM models of species presence.csv", row.names = FALSE)
 
 ### Figure 5 extinctions
@@ -143,8 +143,8 @@ models %>%
 models %>%
   filter(`FDD p.value` < 0.05 | `GDD p.value` < 0.05) %>%
   filter(rho2 > 0.15) %>%
-  select(Taxon, `Cold & Frozen`:`Hot & Snowy`) %>%
-  gather(Scenario, Predict, `Cold & Frozen`:`Hot & Snowy`) %>%
+  select(Taxon, `Cold & Freezing`:`Hot & Snowy`) %>%
+  gather(Scenario, Predict, `Cold & Freezing`:`Hot & Snowy`) %>%
   filter(Predict == 0) %>%
   group_by(Scenario) %>%
   tally %>%
@@ -157,21 +157,20 @@ models %>%
   ggthemes::theme_tufte() +
   scale_fill_manual(values = c("slateblue3", "deepskyblue", "firebrick", "indianred")) +
   scale_y_continuous(breaks = seq(0, 10, by = 1)) +
-  theme(legend.position = "none", 
+  theme(text = element_text(family = "sans"),
+        strip.background = element_blank(),
+        legend.position = "none", 
         legend.direction = "vertical",
         legend.title = element_blank(),
         legend.text = element_text(size = 16, face = "italic"), 
-        panel.background = element_rect(color = "grey96", fill = "grey96"),
+        panel.background = element_rect(color = "black", fill = NULL),
         strip.text = element_text(size = 12),
-        strip.placement = "ouside",
-        axis.title.x = element_text(size = 12, color = "black"),
-        axis.title.y = element_text(size = 12, color = "black"),
-        axis.text.x = element_text(size = 10, color = c("deepskyblue", "slateblue3", "indianred", "firebrick"), 
-                                   face = "bold"),
-        axis.text.y = element_text(size = 10, color = "black")) -> f5; f5
+        axis.title = element_text(size = 12),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.text.y = element_text(size = 11, color = "black")) -> f5; f5
   
 ### Save figure
 
 ggsave(f5, file = "results/figures/F5 - Extinctions.png", 
-       path = NULL, scale = 1, width = 89, height = 89, units = "mm", dpi = 600)
+       path = NULL, scale = 1, width = 150/2, height = 150/2, units = "mm", dpi = 600)
 
