@@ -8,11 +8,17 @@ read.csv("data/spatial-survey-species.csv") %>%
   spread(Taxon, Cover, fill = 0) %>%
   arrange(Plot) %>%
   column_to_rownames(var = "Plot") -> species 
+
 ### Header data
 
 read.csv("data/spatial-survey-header.csv") %>% 
   mutate(Survey = "Spatial") %>%
   merge(read.csv("results/supplement/S1 - Bioclimatic indices.csv")) -> header 
+
+# GDD >5
+read.csv("data/spatial-survey-header.csv") %>% 
+  mutate(Survey = "Spatial") %>%
+  merge(read.csv("results/supplement/S1 - Bioclimatic indices filtered clara.csv")) -> header
 
 ### Do NMDS
 
@@ -31,7 +37,7 @@ vegan::scores(nmds, "sites") %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Hou Sin Tierri",
                             "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) -> sitescores
+  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) -> sitescores
 
 ### Species scores
 
@@ -44,6 +50,7 @@ vegan::scores(nmds, "species") %>%
   separate(Species, into = c("G", "S")) %>%
   mutate(Species = paste(substr(G, 1, 3), substr(S, 1, 3), sep = "")) %>%
   dplyr::select(Taxon, Species, Dim.1, Dim.2)-> sppscores
+write.csv(sppscores, "results/tables/nmds_cl.csv")
 
 ### Environmental scores
 
@@ -55,11 +62,11 @@ header %>%
 
 env %>% cor() -> biocor
 
-save(biocor, file = "results/numerical/bioclim-correlations.R")
+save(biocor, file = "results/numerical/bioclim-correlations_cl.R")
 
 vegan::envfit(nmds, env, permutations = 999, na.rm = TRUE) -> ef1
 
-save(ef1, file = "results/numerical/environmental-fit.R")
+save(ef1, file = "results/numerical/environmental-fit_cl.R")
 
 ef1$vectors$arrows %>%
   data.frame() %>%
@@ -81,14 +88,15 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   ggrepel::geom_text_repel(data = sppscores, aes(label = Species), color = "grey33", fontface = "italic", size = 4, segment.color = "transparent") +
   geom_label(data = envvars, aes(x = Dim.1, y = Dim.2, label = Variable),  show.legend = FALSE, size = 4) +
   ggthemes::theme_tufte() +
+  labs(title = "(D) NMDS") +
   guides(fill=guide_legend(override.aes=list(shape = 21))) + 
   theme(text = element_text(family = "sans"),
         legend.position = "right", legend.box = "vertical", legend.margin = margin(),
         legend.title = element_blank(),
-        legend.text = element_text(size = 12, color = "black"),
+        legend.text = element_text(size = 10, color = "black"),
         panel.background = element_rect(color = "black", fill = NULL),
-        axis.title = element_text(size = 12),
-        axis.text = element_text(size = 12, color = "black")) +
+        axis.title = element_text(size = 10),
+        axis.text = element_text(size = 10, color = "black")) +
   coord_cartesian(xlim = c(-1.1, 1), ylim = c(-1, 1)) +
   scale_x_continuous(name = "NMDS1") + 
   scale_y_continuous(name = "NMDS2") +
@@ -96,11 +104,11 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   annotate("label", x = -.8, y = 1, label = "Hot & Snowy", fill = "indianred", color = "white", size = 4) +
   annotate("label", x = .7, y = 1, label = "Cold & Snowy", fill = "deepskyblue", color = "white", size = 4) +
   annotate("label", x = -.8, y = -1, label = "Hot & Freezing", fill = "firebrick", color = "white", size = 4) +
-  annotate("label", x = .7, y = -1, label = "Cold & Freezing", fill = "slateblue3", color = "white", size = 4) -> f4; f4
+  annotate("label", x = .7, y = -1, label = "Cold & Freezing", fill = "slateblue3", color = "white", size = 4) -> f1d;f1d
 
 ### Save figure
 
-ggsave(f4, file = "results/figures/F4 - NMDS.png", 
+ggsave(f1d, file = "results/figures/F4 - NMDS_cl.png", 
        path = NULL, scale = 1, width = 182, height = 120, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/nmds-species.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182 height = 182, units = "mm", dpi = 600, compression = "lzw")

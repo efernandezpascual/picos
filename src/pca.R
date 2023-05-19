@@ -1,7 +1,7 @@
 library(tidyverse)
 
 read.csv("results/supplement/S1 - Bioclimatic indices.csv") -> bioclim
-
+read.csv("results/supplement/S1 - Bioclimatic indices filtered clara.csv") -> bioclim
 ### PCA
 
 bioclim[, 3:8] %>%
@@ -11,7 +11,7 @@ cbind((bioclim %>%  dplyr::select(Plot, Site, Survey)), data.frame(pca1$ind$coor
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Hou Sin Tierri",
                             "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) -> pcaInds
+  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) -> pcaInds
 
 pca1$var$coord[, 1:2] %>%
   data.frame %>%
@@ -43,14 +43,14 @@ ggplot(pcaInds, aes(x = Dim.1, y = Dim.2)) +
                                   "% variance explained)", sep = "")) +
   scale_shape_manual(values = c(21, 24)) +
   scale_color_manual(values = c("gold", "#B3EE3A",  "#40E0D0", "#551A8B")) +
-  scale_fill_manual(values = c("gold", "#B3EE3A",  "#40E0D0", "#551A8B")) -> f1; f1
+  scale_fill_manual(values = c("gold", "#B3EE3A",  "#40E0D0", "#551A8B")) -> S2;S2
 
 pca1$eig
 pca1$var
 
 ### Save figure
 
-ggsave(f1, file = "results/figures/F3 - PCA of the bioclimatic indices.png", 
+ggsave(S2, file = "results/figures/S2- PCA of the bioclimatic indices.png", 
        path = NULL, scale = 1, width = 182, height = 120, units = "mm", dpi = 600)
 # ggsave(f1, file = "results/figures/pca-temperatures.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 182, units = "mm", dpi = 600, compression = "lzw")

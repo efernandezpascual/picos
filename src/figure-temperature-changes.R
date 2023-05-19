@@ -23,9 +23,9 @@ read.csv("data/temporal-survey-temperatures.csv") %>%
   do(decomposer(.)) %>%
   mutate(Site = as.factor(Site)) %>%
   mutate(Site = fct_relevel(Site,
-                            "Los Cazadores", "Hou Sin Tierri",
-                            "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) -> trends
+                            "Los Cazadores", "Los Boches",
+                            "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
+  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) -> trends
 
 ### Plot trends
 
@@ -47,11 +47,12 @@ trends %>%
         strip.text = element_text(size = 12),
         axis.title = element_text(size = 12),
         axis.text.x = element_text(size = 7, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black")) -> f1; f1
+        axis.text.y = element_text(size = 11, color = "black")) -> F3A; F3A
+
 
 ### Save figure
 
-ggsave(f1, file = "results/figures/temperature-changes.png", 
+ggsave(F3A, file = "results/figures/F3A.png", 
        path = NULL, scale = 1, width = 182, height = 182/3, units = "mm", dpi = 600)
 # ggsave(f1, file = "results/figures/temperature-changes.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 127, height = 160, units = "mm", dpi = 600, compression = "lzw")

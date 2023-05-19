@@ -37,3 +37,10 @@ rbind(read.csv("data/spatial-survey-species.csv"), read.csv("data/temporal-surve
   select(Taxon, Plot) %>%
   unique %>%
   group_by(Taxon) %>% tally %>% arrange(-n)
+
+### clara
+read.csv("data/temporal-survey-species.csv") %>%
+  group_by(Plot)%>%
+  tally() %>%
+  summarise(mean=mean(n))
+  

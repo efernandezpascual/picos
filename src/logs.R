@@ -7,9 +7,9 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
   mutate(Time = as.POSIXct(Time, tz = "UTC")) %>% 
   merge(read.csv("data/spatial-survey-header.csv")) %>%
   mutate(Site = fct_relevel(Site,
-                            "Los Cazadores", "Hou Sin Tierri",
-                            "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
+                            "Los Cazadores", "Los Boches",
+                            "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
+  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Time, Temperature, color = Plot)) + 
   facet_wrap(~ Site, nrow = 1) + 
   geom_hline(yintercept = 0, linetype = "dashed") +
@@ -29,16 +29,16 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
         strip.text = element_text(size = 12),
         axis.title = element_text(size = 12),
         axis.text.x = element_text(size = 8, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black")) -> f1; f1
+        axis.text.y = element_text(size = 11, color = "black")) -> F2B
 
 ### Geoprecision logs
 
 read.csv("data/temporal-survey-temperatures.csv") %>% 
   mutate(Time = as.POSIXct(Time, tz = "UTC")) %>%
   mutate(Site = fct_relevel(Site,
-                            "Los Cazadores", "Hou Sin Tierri",
-                            "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
+                            "Los Cazadores", "Los Boches",
+                            "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
+  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Time, Temperature)) + 
   facet_wrap(~ Site, nrow = 1) + 
   geom_line(color = "red") +
@@ -58,15 +58,15 @@ read.csv("data/temporal-survey-temperatures.csv") %>%
         strip.text = element_text(size = 12),
         axis.title = element_text(size = 12),
         axis.text.x = element_text(size = 8, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black")) -> f2; f2
+        axis.text.y = element_text(size = 11, color = "black")) -> F2A
 
 ### Combine panels
 
-cowplot::plot_grid(f2, f1, ncol = 1) -> fig
+cowplot::plot_grid(F2A, F2B, ncol = 1) -> F2
 
 ### Save figure
 
-ggsave(fig, file = "results/figures/F2 - Temperature logs.png", 
+ggsave(F2, file = "results/figures/F2.png", 
        path = NULL, scale = 1, width = 182, height = 140, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/temperature-logs.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 160, units = "mm", dpi = 600, compression = "lzw")

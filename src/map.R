@@ -1,11 +1,12 @@
-library(tidyverse); library(raster); library(tibbletime); library(lubridate)
+library(tidyverse); library(raster); library(tibbletime); library(lubridate); library(ggpubr)
 
 ### Raster with elevation for Picos area
 
-raster::raster("../#data/maps/picos/DEM/DEM.TIF") %>% # Map files are in my home drive
+raster::raster("C:/Users/Usuario/OneDrive - Universidad de Oviedo/IMIB/Softwares/GitHub/picos/data/picos/DEM/DEM.TIF") %>% # Map files are in my home drive
   rasterToPoints() %>%
   as.data.frame() %>%
   rename(lon = x, lat = y, alt = DEM) -> dem 
+
 
 ### Site coordinates
 # prueba
@@ -17,12 +18,12 @@ read.csv("data/temporal-survey-header.csv") %>%
 
 ### Panel A - Map of Europe
 
-rgdal::readOGR(dsn = "../#data/maps/WWF", 
+rgdal::readOGR(dsn = "data/maps/WWF", 
                layer = "wwf_terr_ecos") -> Ecoregions # Map files are in my home drive
 rownames(Ecoregions@data) -> Ecoregions@data$id
 fortify(Ecoregions, region = "id") -> Ecoregions.points 
 plyr::join(Ecoregions.points, Ecoregions@data, by = "id") %>%
-  inner_join(read.csv("../#data/maps/Biomes.csv"), by = "BIOME") -> land
+  inner_join(read.csv("data/maps/Biomes.csv"), by = "BIOME") -> land
 
 read.csv("data/temporal-survey-header.csv") %>%
   summarise(long = mean(Longitude), lat = mean(Latitude)) %>%
@@ -49,7 +50,7 @@ read.csv("data/temporal-survey-header.csv") %>%
         axis.text = element_blank(),
         axis.ticks = element_blank(),             
         plot.margin = unit(c(0, 0.1, 0, 0), "cm"),
-        axis.title = element_blank()) -> f1
+        axis.title = element_blank()) -> f1a; f1a
 
 ### Panel B - Map of Picos
 
@@ -85,7 +86,7 @@ tPlots %>%
         axis.text = element_blank(),
         axis.ticks = element_blank(),             
         plot.margin = unit(c(0, 0.1, 0, 0), "cm"),
-        axis.title = element_blank()) -> f2
+        axis.title = element_blank()) -> f1b; f1b
 
 ### Panel C - The Crosses
 
@@ -128,16 +129,18 @@ cpplots %>%
         axis.text = element_blank(),
         axis.ticks = element_blank(),             
         plot.margin = unit(c(0, 0.1, 0, 0), "cm"),
-        axis.title = element_blank()) -> f3; f3
+        axis.title = element_blank()) -> f1c; f1c
+
 
 ### Combine panels
 
-cowplot::plot_grid(f1, f2, f3, ncol = 3) -> plot1
-
+cowplot::plot_grid(f1a, f1b, f1c,  ncol = 3) -> f1abc
+#cowplot::plot_grid(f1abc, f1d,  ncol = 1) -> F1
+ggarrange(f1abc, f1d, nrow = 2, heights = c(1.5,2.5))->F1; F1
+x11()
 ### Save figure
 
-ggsave(plot1, file = "results/figures/F1 - Map.png", 
-       path = NULL, scale = 1, width = 182, height = 70, units = "mm", dpi = 600)
+ggsave(F1, file = "results/figures/F1.png", 
+       path = NULL, scale = 1, width = 185, height = 160, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/survey-sites.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 133, units = "mm", dpi = 600, compression = "lzw")
-

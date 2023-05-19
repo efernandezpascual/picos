@@ -1,86 +1,86 @@
-"Taxon","Family","Chorology","Lifeform","Clade","F","K","L","N","R","T"
-"Agrostis schleicheri","Poaceae","Other","Hemicryptophyte","Angiosperms",6,5,7,3,7,4
-"Alchemilla catalaunica","Rosaceae","Endemic","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Androsace villosa","Primulaceae","Alpine","Chamaephyte","Angiosperms",5,5,8,3,7,4
-"Anemone pavoniana","Ranunculaceae","Endemic","Geophyte","Angiosperms",5,5,8,3,7,4
-"Anthyllis vulneraria","Fabaceae","Other","Hemicryptophyte","Angiosperms",5,5,8,3,7,5
-"Arabis alpina","Brassicaceae","Other","Chamaephyte","Angiosperms",6,5,6,4,6,5
-"Arenaria erinacea","Caryophyllaceae","Mediterranean","Chamaephyte","Angiosperms",4,6,8,3,7,5
-"Arenaria grandiflora","Caryophyllaceae","Mediterranean","Chamaephyte","Angiosperms",4,5,8,3,7,5
-"Arenaria moehringioides","Caryophyllaceae","Alpine","Chamaephyte","Angiosperms",5,6,8,3,7,3
-"Arenaria purpurascens","Caryophyllaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,7,4
-"Armeria cantabrica","Plumbaginaceae","Endemic","Hemicryptophyte","Angiosperms",5,6,8,3,6,4
-"Asplenium viride","Aspleniaceae","Other","Hemicryptophyte","Pteridophytes",5,5,7,3,7,5
-"Botrychium lunaria","Ophioglossaceae","Other","Geophyte","Pteridophytes",5,6,8,3,6,4
-"Carduus carlinoides","Asteraceae","Endemic","Hemicryptophyte","Angiosperms",4,6,8,4,7,5
-"Carex ornithopoda","Cyperaceae","Other","Hemicryptophyte","Angiosperms",5,6,8,3,7,4
-"Carex pulicaris","Cyperaceae","Other","Hemicryptophyte","Angiosperms",9,4,7,3,5,5
-"Carex sempervirens","Cyperaceae","Alpine","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Cystopteris fragilis","Cystopteridaceae","Alpine","Hemicryptophyte","Pteridophytes",6,5,6,4,6,5
-"Dethawia splendens subsp. cantabrica","Apiaceae","Endemic","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Draba dedeana","Brassicaceae","Mediterranean","Chamaephyte","Angiosperms",4,6,8,3,7,4
-"Epilobium anagallidifolium","Onagraceae","Other","Hemicryptophyte","Angiosperms",7,5,7,4,6,4
-"Erigeron alpinus","Asteraceae","Alpine","Hemicryptophyte","Angiosperms",5,6,8,3,7,4
-"Erinus alpinus","Plantaginaceae","Mediterranean","Hemicryptophyte","Angiosperms",5,5,8,3,7,5
-"Eryngium bourgatii","Apiaceae","Mediterranean","Hemicryptophyte","Angiosperms",5,5,8,4,6,5
-"Euphorbia pyrenaica","Euphorbiaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,7,4
-"Euphrasia salisburgensis","Orobanchaceae","Alpine","Therophyte","Angiosperms",5,5,8,3,7,4
-"Festuca glacialis","Poaceae","Endemic","Hemicryptophyte","Angiosperms",5,6,8,3,7,3
-"Festuca gr. rubra","Poaceae","Other","Hemicryptophyte","Angiosperms",7,4,7,4,6,6
-"Festuca hystrix","Poaceae","Mediterranean","Hemicryptophyte","Angiosperms",4,5,8,3,7,5
-"Festuca picoeuropeana","Poaceae","Endemic","Hemicryptophyte","Angiosperms",5,6,8,3,7,4
-"Galium pumilum","Rubiaceae","Other","Hemicryptophyte","Angiosperms",5,5,7,4,6,5
-"Galium pyrenaicum","Rubiaceae","Mediterranean","Chamaephyte","Angiosperms",5,6,8,3,7,4
-"Genista legionensis","Fabaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,6,6
-"Gentiana nivalis","Gentianaceae","Alpine","Therophyte","Angiosperms",5,5,8,3,7,4
-"Gentiana verna","Gentianaceae","Alpine","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Gentianella campestris","Gentianaceae","Other","Hemicryptophyte","Angiosperms",6,5,8,3,6,4
-"Gnaphalium hoppeanum","Asteraceae","Alpine","Hemicryptophyte","Angiosperms",5,6,8,3,7,4
-"Gypsophila repens","Caryophyllaceae","Alpine","Chamaephyte","Angiosperms",5,6,8,3,7,4
-"Helianthemum apenninum subsp. cantabricum","Cistaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,7,5
-"Helianthemum apenninum subsp. urrielense","Cistaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,7,5
-"Helianthemum canum","Cistaceae","Other","Chamaephyte","Angiosperms",5,5,8,3,7,5
-"Helictotrichon sedenense","Poaceae","Alpine","Hemicryptophyte","Angiosperms",5,6,8,3,7,4
-"Herniaria glabra","Caryophyllaceae","Other","Therophyte","Angiosperms",5,5,8,3,5,5
-"Hippocrepis comosa","Fabaceae","Other","Chamaephyte","Angiosperms",5,5,8,3,7,5
-"Hornungia alpina","Brassicaceae","Alpine","Chamaephyte","Angiosperms",6,5,7,4,6,5
-"Iberis carnosa","Brassicaceae","Mediterranean","Therophyte","Angiosperms",4,6,8,3,7,4
-"Jacobaea boissieri","Asteraceae","Mediterranean","Hemicryptophyte","Angiosperms",5,6,8,3,7,4
-"Jasione cavanillesii","Campanulaceae","Endemic","Hemicryptophyte","Angiosperms",5,6,8,3,7,3
-"Jurinea humilis","Asteraceae","Mediterranean","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Kobresia myosuroides","Cyperaceae","Alpine","Hemicryptophyte","Angiosperms",5,6,8,3,7,3
-"Koeleria vallesiana","Poaceae","Mediterranean","Hemicryptophyte","Angiosperms",5,5,8,3,7,5
-"Linaria alpina","Plantaginaceae","Alpine","Hemicryptophyte","Angiosperms",4,6,8,3,7,4
-"Lotus corniculatus","Fabaceae","Alpine","Hemicryptophyte","Angiosperms",6,5,7,4,6,6
-"Luzula pediformis","Juncaceae","Other","Hemicryptophyte","Angiosperms",6,5,7,3,5,4
-"Minuartia verna","Caryophyllaceae","Alpine","Chamaephyte","Angiosperms",5,6,8,3,7,4
-"Oxytropis neglecta","Fabaceae","Alpine","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Paronychia kapela subsp. serpyllifolia","Caryophyllaceae","Alpine","Chamaephyte","Angiosperms",4,6,8,3,7,5
-"Pedicularis pyrenaica","Orobanchaceae","Endemic","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Phyteuma orbiculare","Campanulaceae","Other","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Pilosella officinarum","Asteraceae","Other","Hemicryptophyte","Angiosperms",6,5,7,4,5,5
-"Plantago alpina","Plantaginaceae","Alpine","Hemicryptophyte","Angiosperms",5,5,8,3,5,4
-"Poa alpina","Poaceae","Other","Hemicryptophyte","Angiosperms",5,5,8,3,6,4
-"Potentilla crantzii","Rosaceae","Alpine","Chamaephyte","Angiosperms",5,5,8,3,7,5
-"Ranunculus carinthiacus","Ranunculaceae","Alpine","Hemicryptophyte","Angiosperms",5,5,8,3,7,4
-"Ranunculus parnassiifolius subsp. favargeri","Ranunculaceae","Endemic","Hemicryptophyte","Angiosperms",5,6,8,3,7,4
-"Salix breviserrata","Salicaceae","Alpine","Chamaephyte","Angiosperms",5,6,8,3,7,4
-"Saxifraga conifera","Saxifragaceae","Endemic","Chamaephyte","Angiosperms",5,6,8,3,7,4
-"Saxifraga oppositifolia","Saxifragaceae","Alpine","Chamaephyte","Angiosperms",5,6,8,3,7,4
-"Saxifraga paniculata","Saxifragaceae","Alpine","Chamaephyte","Angiosperms",4,5,8,3,7,4
-"Scilla verna","Asparagaceae","Other","Geophyte","Angiosperms",7,4,7,3,5,5
-"Sedum album","Crassulaceae","Other","Chamaephyte","Angiosperms",5,5,8,4,6,6
-"Sedum atratum","Crassulaceae","Alpine","Therophyte","Angiosperms",5,6,8,3,7,4
-"Sedum brevifolium","Crassulaceae","Mediterranean","Chamaephyte","Angiosperms",4,6,8,3,4,4
-"Sempervivum vicentei","Crassulaceae","Mediterranean","Chamaephyte","Angiosperms",4,6,8,3,6,4
-"Seseli montanum","Apiaceae","Other","Hemicryptophyte","Angiosperms",5,5,8,3,7,5
-"Sesleria caerulea","Poaceae","Other","Hemicryptophyte","Angiosperms",6,5,8,3,7,4
-"Silene acaulis","Caryophyllaceae","Alpine","Chamaephyte","Angiosperms",5,6,8,3,7,4
-"Silene ciliata","Caryophyllaceae","Mediterranean","Hemicryptophyte","Angiosperms",5,6,8,3,6,4
-"Solidago virgaurea","Asteraceae","Other","Hemicryptophyte","Angiosperms",6,5,6,4,4,5
-"Teucrium pyrenaicum","Lamiaceae","Endemic","Chamaephyte","Angiosperms",5,5,8,3,6,6
-"Thesium pyrenaicum","Santalaceae","Alpine","Hemicryptophyte","Angiosperms",6,5,7,3,6,5
-"Thymus praecox subsp. ligusticus","Lamiaceae","Other","Chamaephyte","Angiosperms",5,5,8,3,6,5
-"Veronica nummularia","Plantaginaceae","Endemic","Chamaephyte","Angiosperms",5,6,8,3,7,3
-"Viola riviniana","Violaceae","Other","Hemicryptophyte","Angiosperms",6,4,6,4,5,6
-"Viola rupestris","Violaceae","Other","Hemicryptophyte","Angiosperms",5,5,8,3,6,4
+Taxon;Family;Chorology;Lifeform;Clade;F;K;L;N;R;T
+Agrostis schleicheri;Poaceae;Other;Hemicryptophyte;Angiosperms;6;5;7;3;7;4
+Alchemilla catalaunica;Rosaceae;Endemic;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Androsace villosa;Primulaceae;Alpine;Chamaephyte;Angiosperms;5;5;8;3;7;4
+Anemone pavoniana;Ranunculaceae;Endemic;Geophyte;Angiosperms;5;5;8;3;7;4
+Anthyllis vulneraria;Fabaceae;Other;Hemicryptophyte;Angiosperms;5;5;8;3;7;5
+Arabis alpina;Brassicaceae;Other;Chamaephyte;Angiosperms;6;5;6;4;6;5
+Arenaria erinacea;Caryophyllaceae;Mediterranean;Chamaephyte;Angiosperms;4;6;8;3;7;5
+Arenaria grandiflora;Caryophyllaceae;Mediterranean;Chamaephyte;Angiosperms;4;5;8;3;7;5
+Arenaria moehringioides;Caryophyllaceae;Alpine;Chamaephyte;Angiosperms;5;6;8;3;7;3
+Arenaria purpurascens;Caryophyllaceae;Endemic;Chamaephyte;Angiosperms;5;5;8;3;7;4
+Armeria cantabrica;Plumbaginaceae;Endemic;Hemicryptophyte;Angiosperms;5;6;8;3;6;4
+Asplenium viride;Aspleniaceae;Other;Hemicryptophyte;Pteridophytes;5;5;7;3;7;5
+Botrychium lunaria;Ophioglossaceae;Other;Geophyte;Pteridophytes;5;6;8;3;6;4
+Carduus carlinoides;Asteraceae;Endemic;Hemicryptophyte;Angiosperms;4;6;8;4;7;5
+Carex ornithopoda;Cyperaceae;Other;Hemicryptophyte;Angiosperms;5;6;8;3;7;4
+Carex pulicaris;Cyperaceae;Other;Hemicryptophyte;Angiosperms;9;4;7;3;5;5
+Carex sempervirens;Cyperaceae;Alpine;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Cystopteris fragilis;Cystopteridaceae;Alpine;Hemicryptophyte;Pteridophytes;6;5;6;4;6;5
+Dethawia splendens subsp. cantabrica;Apiaceae;Endemic;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Draba dedeana;Brassicaceae;Mediterranean;Chamaephyte;Angiosperms;4;6;8;3;7;4
+Epilobium anagallidifolium;Onagraceae;Other;Hemicryptophyte;Angiosperms;7;5;7;4;6;4
+Erigeron alpinus;Asteraceae;Alpine;Hemicryptophyte;Angiosperms;5;6;8;3;7;4
+Erinus alpinus;Plantaginaceae;Mediterranean;Hemicryptophyte;Angiosperms;5;5;8;3;7;5
+Eryngium bourgatii;Apiaceae;Mediterranean;Hemicryptophyte;Angiosperms;5;5;8;4;6;5
+Euphorbia pyrenaica;Euphorbiaceae;Endemic;Chamaephyte;Angiosperms;5;5;8;3;7;4
+Euphrasia salisburgensis;Orobanchaceae;Alpine;Therophyte;Angiosperms;5;5;8;3;7;4
+Festuca glacialis;Poaceae;Endemic;Hemicryptophyte;Angiosperms;5;6;8;3;7;3
+Festuca gr. rubra;Poaceae;Other;Hemicryptophyte;Angiosperms;7;4;7;4;6;6
+Festuca hystrix;Poaceae;Mediterranean;Hemicryptophyte;Angiosperms;4;5;8;3;7;5
+Festuca picoeuropeana;Poaceae;Endemic;Hemicryptophyte;Angiosperms;5;6;8;3;7;4
+Galium pumilum;Rubiaceae;Other;Hemicryptophyte;Angiosperms;5;5;7;4;6;5
+Galium pyrenaicum;Rubiaceae;Mediterranean;Chamaephyte;Angiosperms;5;6;8;3;7;4
+Genista legionensis;Fabaceae;Endemic;Chamaephyte;Angiosperms;5;5;8;3;6;6
+Gentiana nivalis;Gentianaceae;Alpine;Therophyte;Angiosperms;5;5;8;3;7;4
+Gentiana verna;Gentianaceae;Alpine;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Gentianella campestris;Gentianaceae;Other;Hemicryptophyte;Angiosperms;6;5;8;3;6;4
+Gnaphalium hoppeanum;Asteraceae;Alpine;Hemicryptophyte;Angiosperms;5;6;8;3;7;4
+Gypsophila repens;Caryophyllaceae;Alpine;Chamaephyte;Angiosperms;5;6;8;3;7;4
+Helianthemum apenninum subsp. cantabricum;Cistaceae;Endemic;Chamaephyte;Angiosperms;5;5;8;3;7;5
+Helianthemum apenninum subsp. urrielense;Cistaceae;Endemic;Chamaephyte;Angiosperms;5;5;8;3;7;5
+Helianthemum canum;Cistaceae;Other;Chamaephyte;Angiosperms;5;5;8;3;7;5
+Helictotrichon sedenense;Poaceae;Alpine;Hemicryptophyte;Angiosperms;5;6;8;3;7;4
+Herniaria glabra;Caryophyllaceae;Other;Therophyte;Angiosperms;5;5;8;3;5;5
+Hippocrepis comosa;Fabaceae;Other;Chamaephyte;Angiosperms;5;5;8;3;7;5
+Hornungia alpina;Brassicaceae;Alpine;Chamaephyte;Angiosperms;6;5;7;4;6;5
+Iberis carnosa;Brassicaceae;Mediterranean;Therophyte;Angiosperms;4;6;8;3;7;4
+Jacobaea boissieri;Asteraceae;Mediterranean;Hemicryptophyte;Angiosperms;5;6;8;3;7;4
+Jasione cavanillesii;Campanulaceae;Endemic;Hemicryptophyte;Angiosperms;5;6;8;3;7;3
+Jurinea humilis;Asteraceae;Mediterranean;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Kobresia myosuroides;Cyperaceae;Alpine;Hemicryptophyte;Angiosperms;5;6;8;3;7;3
+Koeleria vallesiana;Poaceae;Mediterranean;Hemicryptophyte;Angiosperms;5;5;8;3;7;5
+Linaria alpina;Plantaginaceae;Alpine;Hemicryptophyte;Angiosperms;4;6;8;3;7;4
+Lotus corniculatus;Fabaceae;Alpine;Hemicryptophyte;Angiosperms;6;5;7;4;6;6
+Luzula pediformis;Juncaceae;Other;Hemicryptophyte;Angiosperms;6;5;7;3;5;4
+Minuartia verna;Caryophyllaceae;Alpine;Chamaephyte;Angiosperms;5;6;8;3;7;4
+Oxytropis neglecta;Fabaceae;Alpine;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Paronychia kapela subsp. serpyllifolia;Caryophyllaceae;Alpine;Chamaephyte;Angiosperms;4;6;8;3;7;5
+Pedicularis pyrenaica;Orobanchaceae;Endemic;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Phyteuma orbiculare;Campanulaceae;Other;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Pilosella officinarum;Asteraceae;Other;Hemicryptophyte;Angiosperms;6;5;7;4;5;5
+Plantago alpina;Plantaginaceae;Alpine;Hemicryptophyte;Angiosperms;5;5;8;3;5;4
+Poa alpina;Poaceae;Other;Hemicryptophyte;Angiosperms;5;5;8;3;6;4
+Potentilla crantzii;Rosaceae;Alpine;Chamaephyte;Angiosperms;5;5;8;3;7;5
+Ranunculus carinthiacus;Ranunculaceae;Alpine;Hemicryptophyte;Angiosperms;5;5;8;3;7;4
+Ranunculus parnassiifolius subsp. favargeri;Ranunculaceae;Endemic;Hemicryptophyte;Angiosperms;5;6;8;3;7;4
+Salix breviserrata;Salicaceae;Alpine;Chamaephyte;Angiosperms;5;6;8;3;7;4
+Saxifraga conifera;Saxifragaceae;Endemic;Chamaephyte;Angiosperms;5;6;8;3;7;4
+Saxifraga oppositifolia;Saxifragaceae;Alpine;Chamaephyte;Angiosperms;5;6;8;3;7;4
+Saxifraga paniculata;Saxifragaceae;Alpine;Chamaephyte;Angiosperms;4;5;8;3;7;4
+Scilla verna;Asparagaceae;Other;Geophyte;Angiosperms;7;4;7;3;5;5
+Sedum album;Crassulaceae;Other;Chamaephyte;Angiosperms;5;5;8;4;6;6
+Sedum atratum;Crassulaceae;Alpine;Therophyte;Angiosperms;5;6;8;3;7;4
+Sedum brevifolium;Crassulaceae;Mediterranean;Chamaephyte;Angiosperms;4;6;8;3;4;4
+Sempervivum vicentei;Crassulaceae;Mediterranean;Chamaephyte;Angiosperms;4;6;8;3;6;4
+Seseli montanum;Apiaceae;Other;Hemicryptophyte;Angiosperms;5;5;8;3;7;5
+Sesleria caerulea;Poaceae;Other;Hemicryptophyte;Angiosperms;6;5;8;3;7;4
+Silene acaulis;Caryophyllaceae;Alpine;Chamaephyte;Angiosperms;5;6;8;3;7;4
+Silene ciliata;Caryophyllaceae;Mediterranean;Hemicryptophyte;Angiosperms;5;6;8;3;6;4
+Solidago virgaurea;Asteraceae;Other;Hemicryptophyte;Angiosperms;6;5;6;4;4;5
+Teucrium pyrenaicum;Lamiaceae;Endemic;Chamaephyte;Angiosperms;5;5;8;3;6;6
+Thesium pyrenaicum;Santalaceae;Alpine;Hemicryptophyte;Angiosperms;6;5;7;3;6;5
+Thymus praecox subsp. ligusticus;Lamiaceae;Other;Chamaephyte;Angiosperms;5;5;8;3;6;5
+Veronica nummularia;Plantaginaceae;Endemic;Chamaephyte;Angiosperms;5;6;8;3;7;3
+Viola riviniana;Violaceae;Other;Hemicryptophyte;Angiosperms;6;4;6;4;5;6
+Viola rupestris;Violaceae;Other;Hemicryptophyte;Angiosperms;5;5;8;3;6;4

@@ -28,9 +28,9 @@ rbind(temporal, spatial) -> temps
 
 temps %>%  
   mutate(Site = fct_relevel(Site,
-                                     "Los Cazadores", "Hou Sin Tierri",
-                                     "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
+                                     "Los Cazadores", "Los Boches",
+                                     "Hou Sin Tierri", "Hoyo Sin Tierra")) %>%
+  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Survey, Temperature, color = Survey, fill = Survey)) + 
   geom_jitter(shape = 16, position = position_jitter(0.15), alpha = 0.1) +
   geom_violin(alpha = 0.05, draw_quantiles = c(0.25, 0.5, 0.75), color = "black") +
@@ -50,15 +50,24 @@ temps %>%
         strip.text = element_text(size = 12),
         axis.title = element_text(size = 12),
         axis.text.x = element_text(size = 8, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black")) -> f2; f2
+        axis.text.y = element_text(size = 11, color = "black")) -> F3B; F3B
 
-ggsave(f2, file = "results/figures/F2 - space vs time.png", 
+ggsave(F3B, file = "results/figures/F3B - space vs time.png", 
        path = NULL, scale = 1, width = 182, height = 140, units = "mm", dpi = 600)
 
-read.csv("results/supplement/S1 - Bioclimatic indices.csv") %>%
+read.csv("results/supplement/S1 - Bioclimatic indices filtered clara.csv") %>%
   gather(Trait, Value, bio1:GDD) %>%
   filter(Trait %in% c("GDD", "FDD")) %>%
   group_by(Trait, Site, Survey) %>%
   summarise(m = mean(Value), s = sd(Value), n = length(Value),
             error = 1.96 * (s/sqrt(n)),
             lower = m-error, upper = m+error)
+
+# combine plots Fig 3
+library(ggpubr)
+ggarrange(F3A, F3B, nrow = 2, heights = c(1.5,3))->F3;F3
+
+### Save figure
+
+ggsave(F3, file = "results/figures/F3.png", 
+       path = NULL, scale = 1, width = 182, height = 160, units = "mm", dpi = 600)
