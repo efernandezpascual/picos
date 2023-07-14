@@ -1,78 +1,78 @@
-;Species;Abbreviation ;NMDS 1;NMDS 2
-1;Agrostis schleicheri;Agrsch;-0.226262487;-0.328654791
-2;Alchemilla catalaunica;Alccat;-0.247869428;0.445109487
-3;Androsace villosa;Andvil;-0.560920719;-0.13187965
-4;Anemone pavoniana;Anepav;-0.307018265;-0.006455247
-5;Anthyllis vulneraria;Antvul;0.092758694;-0.193042451
-6;Arabis alpina;Araalp;0.243879168;0.308944503
-7;Arenaria erinacea;Areeri;-0.403240688;-0.371362108
-8;Arenaria grandiflora;Aregra;0.570406386;0.03229533
-9;Arenaria moehringioides;Aremoe;0.378180686;-0.189581463
-10;Arenaria purpurascens;Arepur;-0.298909225;-0.053630373
-11;Armeria cantabrica;Armcan;0.55688866;0.120816852
-12;Botrychium lunaria;Botlun;0.234674946;0.339136684
-13;Carduus carlinoides;Carcar;0.663581538;-0.174650519
-14;Carex ornithopoda;Carorn;0.37664498;0.132719754
-15;Carex pulicaris;Carpul;0.589573258;0.251044943
-16;Carex sempervirens;Carsem;-0.385317711;0.226007191
-17;Cystopteris fragilis;Cysfra;-0.147607225;-0.357475915
-18;Dethawia splendens subsp. cantabrica;Detspl;-0.402976434;0.072369839
-19;Draba dedeana;Draded;-0.434678222;0.493762163
-20;Erigeron alpinus;Erialp;0.108329178;0.221715636
-21;Eryngium bourgatii;Erybou;-0.183890754;0.21969489
-22;Euphorbia pyrenaica;Euppyr;-0.412461975;-0.090365523
-23;Euphrasia salisburgensis;Eupsal;-0.224633623;-0.341609412
-24;Festuca glacialis;Fesgla;0.70335011;0.10426121
-25;Festuca gr. rubra;Fesrub;-0.070730914;0.390515043
-26;Festuca hystrix;Feshys;-0.398027835;-0.241448642
-27;Festuca picoeuropeana;Fespic;-0.240771995;-0.37138493
-28;Galium pumilum;Galpum;0.057752926;0.628167661
-29;Galium pyrenaicum;Galpyr;0.077845972;-0.627318408
-30;Genista legionensis;Genleg;-0.599503189;-0.080179659
-31;Gentiana nivalis;Genniv;0.144339335;0.087367268
-32;Gentiana verna;Genver;-0.372098952;0.081237811
-33;Gentianella campestris;Gencam;-0.294024771;0.030831677
-34;Gnaphalium hoppeanum;Gnahop;0.363060393;0.374595879
-35;Gypsophila repens;Gyprep;-0.417139952;-0.184857939
-36;Helianthemum apenninum subsp. cantabricum;Helcan;-0.246736042;0.535502555
-37;Helianthemum apenninum subsp. urrielense;Helurr;0.245895999;0.201587925
-38;Helianthemum canum;Helcan;-0.361103675;-0.148298566
-39;Helictotrichon sedenense;Helsed;0.112714171;-0.36558285
-40;Herniaria glabra;Hergla;0.243572411;0.278850135
-41;Hippocrepis comosa;Hipcom;-0.287295153;0.32971575
-42;Hornungia alpina;Horalp;-0.133517752;0.471411586
-43;Iberis carnosa;Ibecar;0.461441812;-0.362364353
-44;Jacobaea boissieri;Jacboi;-0.192426505;-0.732820485
-45;Jasione cavanillesii;Jascav;0.579371338;-0.117624597
-46;Jurinea humilis;Jurhum;-0.494223185;0.118294568
-47;Kobresia myosuroides;Kobmyo;-0.444494083;-0.33052187
-48;Koeleria vallesiana;Koeval;-0.172649676;0.280801028
-49;Linaria alpina;Linalp;0.372223512;0.121640615
-50;Lotus corniculatus;Lotcor;-0.257304871;0.270113
-51;Luzula pediformis;Luzped;0.060051251;0.542011885
-52;Minuartia verna;Minver;-0.142828936;-0.184597741
-53;Oxytropis neglecta;Oxyneg;-0.215196783;-0.095166282
-54;Paronychia kapela subsp. serpyllifolia;Parkap;-0.363674373;0.031667316
-55;Pedicularis pyrenaica;Pedpyr;-0.460458571;-0.038791302
-56;Phyteuma orbiculare;Phyorb;-0.530129027;0.19782045
-57;Pilosella officinarum;Piloff;-0.332758027;0.057251853
-58;Plantago alpina;Plaalp;-0.07503951;0.306265185
-59;Poa alpina;Poaalp;0.174996785;0.524163807
-60;Potentilla crantzii;Potcra;-0.249685862;0.287877989
-61;Ranunculus carinthiacus;Rancar;0.084268376;0.404208887
-62;Ranunculus parnassiifolius subsp. favargeri;Ranpar;0.255040864;-0.486312075
-63;Salix breviserrata;Salbre;0.221586901;-0.672890377
-64;Saxifraga conifera;Saxcon;-0.061498939;0.230079274
-65;Saxifraga oppositifolia;Saxopp;0.263474071;-0.756111552
-66;Saxifraga paniculata;Saxpan;0.174728135;0.20689849
-67;Scilla verna;Sciver;-0.314853489;0.248379925
-68;Sedum album;Sedalb;-0.019472893;0.364549993
-69;Sedum atratum;Sedatr;0.338343395;-0.093015867
-70;Sempervivum vicentei;Semvic;-0.323518232;0.157981583
-71;Silene acaulis;Silaca;0.54757546;-0.058516177
-72;Silene ciliata;Silcil;0.322289705;0.162293599
-73;Teucrium pyrenaicum;Teupyr;-0.659365966;-0.125213477
-74;Thesium pyrenaicum;Thepyr;-0.625902473;0.039105239
-75;Thymus praecox subsp. ligusticus;Thypra;0.01181457;0.115428836
-76;Veronica nummularia;Vernum;0.509737658;-0.244959227
-77;Viola rupestris;Viorup;-0.290137797;0.212050724
+"","Taxon","Species","Dim.1","Dim.2"
+"1","Agrostis schleicheri","Agrsch",-0.228532991680722,-0.330385428467836
+"2","Alchemilla catalaunica","Alccat",-0.247720519565692,0.446395202675331
+"3","Androsace villosa","Andvil",-0.563962334063875,-0.130232825333928
+"4","Anemone pavoniana","Anepav",-0.309759119010923,-0.00961108713666754
+"5","Anthyllis vulneraria","Antvul",0.0940687057068603,-0.191409071304761
+"6","Arabis alpina","Araalp",0.244738488570093,0.31014045219388
+"7","Arenaria erinacea","Areeri",-0.405716948301935,-0.372075816445094
+"8","Arenaria grandiflora","Aregra",0.571845265008047,0.0314133135399151
+"9","Arenaria moehringioides","Aremoe",0.377029642875757,-0.190740564695764
+"10","Arenaria purpurascens","Arepur",-0.302006808363373,-0.0503989267731941
+"11","Armeria cantabrica","Armcan",0.558917498900767,0.122039261522794
+"12","Botrychium lunaria","Botlun",0.235954750523311,0.339513302813626
+"13","Carduus carlinoides","Carcar",0.664696823293122,-0.174153512724092
+"14","Carex ornithopoda","Carorn",0.377089679692521,0.135555815672073
+"15","Carex pulicaris","Carpul",0.59113281683461,0.25063167330231
+"16","Carex sempervirens","Carsem",-0.385662650240835,0.227784766051265
+"17","Cystopteris fragilis","Cysfra",-0.148566941308986,-0.35815877991527
+"18","Dethawia splendens subsp. cantabrica","Detspl",-0.403749724314966,0.0735343828094376
+"19","Draba dedeana","Draded",-0.434388866255365,0.496005340600183
+"20","Erigeron alpinus","Erialp",0.107907006859263,0.219897283527495
+"21","Eryngium bourgatii","Erybou",-0.18300991812473,0.221088319129594
+"22","Euphorbia pyrenaica","Euppyr",-0.413861961605831,-0.0915812027889267
+"23","Euphrasia salisburgensis","Eupsal",-0.224155396426147,-0.341189849358934
+"24","Festuca glacialis","Fesgla",0.705321024763898,0.105039673380268
+"25","Festuca gr. rubra","Fesrub",-0.0706742080504181,0.390412434611567
+"26","Festuca hystrix","Feshys",-0.40211383432765,-0.24693572341095
+"27","Festuca picoeuropeana","Fespic",-0.241927882730406,-0.372352147863138
+"28","Galium pumilum","Galpum",0.0595032517743954,0.629247739554495
+"29","Galium pyrenaicum","Galpyr",0.0792151513228487,-0.629423797409679
+"30","Genista legionensis","Genleg",-0.601546355143313,-0.0784720825148379
+"31","Gentiana nivalis","Genniv",0.145442680180561,0.0893936599380859
+"32","Gentiana verna","Genver",-0.370151946493063,0.0883539636424275
+"33","Gentianella campestris","Gencam",-0.300180718968453,0.0271314327768368
+"34","Gnaphalium hoppeanum","Gnahop",0.365342933264722,0.375210194558279
+"35","Gypsophila repens","Gyprep",-0.418303816820396,-0.185735701904547
+"36","Helianthemum apenninum subsp. cantabricum","Helcan",-0.244700523825727,0.536844696842702
+"37","Helianthemum apenninum subsp. urrielense","Helurr",0.247303691750716,0.203101636589916
+"38","Helianthemum canum","Helcan",-0.361151120629112,-0.145464224906182
+"39","Helictotrichon sedenense","Helsed",0.114755292464832,-0.364181572881338
+"40","Herniaria glabra","Hergla",0.244288441812318,0.279168421973623
+"41","Hippocrepis comosa","Hipcom",-0.2884739883142,0.329761173152835
+"42","Hornungia alpina","Horalp",-0.133240532116941,0.473151782038527
+"43","Iberis carnosa","Ibecar",0.459940082848315,-0.369208640391645
+"44","Jacobaea boissieri","Jacboi",-0.192283657186961,-0.735534036034352
+"45","Jasione cavanillesii","Jascav",0.58069907995084,-0.118742913059271
+"46","Jurinea humilis","Jurhum",-0.495180871565412,0.119893430282785
+"47","Kobresia myosuroides","Kobmyo",-0.446307145333024,-0.331251547500264
+"48","Koeleria vallesiana","Koeval",-0.173547136929968,0.28020282111679
+"49","Linaria alpina","Linalp",0.373093259034394,0.12146240916488
+"50","Lotus corniculatus","Lotcor",-0.261715091600581,0.261448255108862
+"51","Luzula pediformis","Luzped",0.06059300011817,0.54331578604395
+"52","Minuartia verna","Minver",-0.144522870222382,-0.187257564143075
+"53","Oxytropis neglecta","Oxyneg",-0.218008533028233,-0.093745679734418
+"54","Paronychia kapela subsp. serpyllifolia","Parkap",-0.363924983190909,0.0294342602768082
+"55","Pedicularis pyrenaica","Pedpyr",-0.461506960091178,-0.0384385778686151
+"56","Phyteuma orbiculare","Phyorb",-0.531442309055234,0.200570982488969
+"57","Pilosella officinarum","Piloff",-0.329864824779008,0.0656835409353311
+"58","Plantago alpina","Plaalp",-0.0751764406934382,0.306402984139948
+"59","Poa alpina","Poaalp",0.175917732392574,0.525481227761229
+"60","Potentilla crantzii","Potcra",-0.248687508257598,0.291877005690838
+"61","Ranunculus carinthiacus","Rancar",0.0847040905650253,0.405722284206813
+"62","Ranunculus parnassiifolius subsp. favargeri","Ranpar",0.25603935541478,-0.486466211805752
+"63","Salix breviserrata","Salbre",0.203100973788199,-0.684148655902204
+"64","Saxifraga conifera","Saxcon",-0.0604929057722811,0.231423828000374
+"65","Saxifraga oppositifolia","Saxopp",0.272467294470682,-0.754693635626814
+"66","Saxifraga paniculata","Saxpan",0.162249858531245,0.170650325449724
+"67","Scilla verna","Sciver",-0.316684489653887,0.246433973504339
+"68","Sedum album","Sedalb",-0.0182804897912781,0.364807925720902
+"69","Sedum atratum","Sedatr",0.343252019088675,-0.0873721728885263
+"70","Sempervivum vicentei","Semvic",-0.323035451535697,0.158220769252858
+"71","Silene acaulis","Silaca",0.549364958582618,-0.0571539936718241
+"72","Silene ciliata","Silcil",0.321974716294408,0.161852884528992
+"73","Teucrium pyrenaicum","Teupyr",-0.661759748275928,-0.122308107006981
+"74","Thesium pyrenaicum","Thepyr",-0.628714476815513,0.0401871217004183
+"75","Thymus praecox subsp. ligusticus","Thypra",0.0124008390505578,0.11652597653685
+"76","Veronica nummularia","Vernum",0.510568514667956,-0.246553812957942
+"77","Viola rupestris","Viorup",-0.290874439375747,0.212189210329384

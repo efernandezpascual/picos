@@ -2,6 +2,13 @@ library(tidyverse); library(raster); library(tibbletime); library(lubridate); li
 
 ### Raster with elevation for Picos area
 
+# raster::raster("../#data/maps/picos/DEM/DEM.TIF") %>% # Map files are in my home drive
+#   rasterToPoints() %>%
+#   as.data.frame() %>%
+#   rename(lon = x, lat = y, alt = DEM) -> dem 
+
+### Raster with elevation for Picos area
+
 raster::raster("C:/Users/Usuario/OneDrive - Universidad de Oviedo/IMIB/Softwares/GitHub/picos/data/picos/DEM/DEM.TIF") %>% # Map files are in my home drive
   rasterToPoints() %>%
   as.data.frame() %>%
@@ -18,10 +25,14 @@ read.csv("data/temporal-survey-header.csv") %>%
 
 ### Panel A - Map of Europe
 
+# rgdal::readOGR(dsn = "../#data/maps/WWF", 
+#                layer = "wwf_terr_ecos") -> Ecoregions # Map files are in my home drive
 rgdal::readOGR(dsn = "data/maps/WWF", 
                layer = "wwf_terr_ecos") -> Ecoregions # Map files are in my home drive
 rownames(Ecoregions@data) -> Ecoregions@data$id
 fortify(Ecoregions, region = "id") -> Ecoregions.points 
+# plyr::join(Ecoregions.points, Ecoregions@data, by = "id") %>%
+#   inner_join(read.csv("../#data/maps/Biomes.csv"), by = "BIOME") -> land
 plyr::join(Ecoregions.points, Ecoregions@data, by = "id") %>%
   inner_join(read.csv("data/maps/Biomes.csv"), by = "BIOME") -> land
 

@@ -74,7 +74,7 @@ cowplot::plot_grid(F2A, F2B, ncol = 1) -> F2; F2
 
 ### Save figure
 
-ggsave(F2, file = "results/figures/clara changes/F2(H).png", 
+ggsave(F2, file = "results/figures/F2.png", 
        path = NULL, scale = 1, width = 182, height = 140, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/temperature-logs.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 160, units = "mm", dpi = 600, compression = "lzw")
