@@ -50,7 +50,7 @@ read.csv("data/temporal-survey-header.csv") %>%
         axis.text = element_blank(),
         axis.ticks = element_blank(),             
         plot.margin = unit(c(0, 0.1, 0, 0), "cm"),
-        axis.title = element_blank()) -> f1a; f1a
+        axis.title = element_blank()) -> f1a;  f1a
 
 ### Panel B - Map of Picos
 

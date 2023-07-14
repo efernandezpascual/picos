@@ -104,7 +104,7 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   annotate("label", x = -.8, y = 1, label = "Hot & Snowy", fill = "indianred", color = "white", size = 4) +
   annotate("label", x = .7, y = 1, label = "Cold & Snowy", fill = "deepskyblue", color = "white", size = 4) +
   annotate("label", x = -.8, y = -1, label = "Hot & Freezing", fill = "firebrick", color = "white", size = 4) +
-  annotate("label", x = .7, y = -1, label = "Cold & Freezing", fill = "slateblue3", color = "white", size = 4) -> f1d;f1d
+  annotate("label", x = .7, y = -1, label = "Cold & Freezing", fill = "slateblue3", color = "white", size = 4) -> f1d; f1d
 
 ### Save figure
 

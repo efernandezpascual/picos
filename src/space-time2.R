@@ -22,7 +22,7 @@ read.csv("data/spatial-survey-temperatures.csv", sep = ",") %>%
   mutate(Time = as.POSIXct(Time, tz = "UTC")) %>%
   merge(read.csv("data/spatial-survey-header.csv"))%>%
   mutate(Survey = "Spatial") %>%
-  select(Site, Time, Temperature, Survey) -> spatial
+  select(Site, Time, Temperature, Survey) ->  spatial
 
 ## Bind
 

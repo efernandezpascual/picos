@@ -66,7 +66,7 @@ read.csv("data/temporal-survey-temperatures.csv", sep= ";") %>%
         strip.text = element_text(size = 12),
         axis.title = element_text(size = 12),
         axis.text.x = element_text(size = 8, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black")) -> F2A;F2A
+        axis.text.y = element_text(size = 11, color = "black")) -> F2A; F2A
 
 ### Combine panels
 

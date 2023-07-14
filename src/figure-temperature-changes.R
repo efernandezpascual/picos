@@ -26,7 +26,7 @@ read.csv("data/temporal-survey-temperatures.csv", sep =";") %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Los Boches",
                             "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) -> trends
+  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri"))  -> trends
 
 ### Plot trends
 graph_names <- as_labeller (c( "Los Cazadores" ="Los Cazadores \n (Snowbed)", 
