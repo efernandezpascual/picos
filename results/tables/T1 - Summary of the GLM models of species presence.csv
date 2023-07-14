@@ -1,17 +1,36 @@
-Taxon;GDD estimate;GDD p;FDD estimate;FDD p;rho2;Cold & Freezing;Cold & Snowy;Hot & Freezing;Hot & Snowy
-Alchemilla catalaunica;0;0.174;-0.06;0.035;0.2;100;83;100;26
-Androsace villosa;0.01;<0.001;-0.01;0.376;0.49;100;100;0;0
-Arabis alpina;-0.01;0.004;-0.01;0.396;0.22;75;40;100;100
-Arenaria grandiflora;0;0.004;-0.01;0.272;0.18;78;38;100;100
-Arenaria moehringioides;-0.01;0.001;0.01;0.03;0.34;3;40;100;100
-Armeria cantabrica;-0.01;<0.001;-0.01;0.029;0.39;35;2;100;100
-Carex sempervirens;0;0.007;-0.02;0.007;0.18;99;62;64;3
-Erigeron alpinus;0;0.972;-0.06;0.035;0.19;100;66;100;67
-Euphrasia salisburgensis;0;0.11;0.03;<0.001;0.32;9;99;0;67
-Festuca glacialis;-0.02;0.001;0.01;0.278;0.67;0;0;100;100
-Festuca hystrix;0.01;<0.001;0;0.644;0.3;100;99;2;1
-Galium pyrenaicum;0;0.9;0.03;<0.001;0.37;5;98;4;97
-Helianthemum canum;0.01;<0.001;-0.01;0.333;0.4;99;97;0;0
-Iberis carnosa;0;0.023;0.02;<0.001;0.27;2;74;79;100
-Lotus corniculatus;0;0.045;-0.04;0.05;0.18;100;90;100;15
-Scilla verna;0;0.006;-0.05;0.035;0.25;100;94;100;4
+Taxon;GDD estimate;GDD p;FDD estimate;FDD p;rho2;Cold & Freezing;Cold & Snowy;Hot & Freezing;Hot & Snowy;Frequency 2009;Frequency 2018
+Alchemilla catalaunica;0;0.181;-0.06;0.035;0.2;0;39;0;93;-;-
+Androsace villosa;0.01;<0.001;-0.01;0.438;0.45;37;70;100;100;1498.1;1466.2
+Arabis alpina;-0.01;0.003;-0.01;0.355;0.22;1;5;0;0;-;-
+Arenaria grandiflora;0;0.004;-0.01;0.243;0.17;2;10;0;0;-;-
+Arenaria moehringioides;-0.01;0.001;0.01;0.035;0.36;11;1;0;0;138.1;255
+Armeria cantabrica;-0.01;<0.001;-0.01;0.021;0.39;1;24;0;0;138.1;21.2
+Carex sempervirens;0;0.004;-0.02;0.007;0.19;6;79;91;100;956.2;828.8
+Erigeron alpinus;0;0.972;-0.06;0.033;0.19;0;34;0;36;21.2;63.7
+Euphrasia salisburgensis;0;0.116;0.03;<0.001;0.32;98;6;100;84;371.9;276.2
+Festuca glacialis;-0.02;<0.001;0.01;0.467;0.65;0;0;0;0;-;-
+Festuca hystrix;0.01;<0.001;0;0.685;0.28;20;35;100;100;1455.6;1519.4
+Galium pyrenaicum;0;0.938;0.03;<0.001;0.37;95;2;96;3;74.4;0
+Helianthemum canum;0.01;<0.001;0;0.427;0.39;59;81;100;100;4781.2;5036.2
+Iberis carnosa;0;0.018;0.02;<0.001;0.28;83;3;1;0;21.2;0
+Lotus corniculatus;0;0.035;-0.04;0.049;0.19;0;39;0;99;0;10.6
+Scilla verna;0;0.004;-0.05;0.033;0.28;0;46;2;100;531.2;595
+;;;;;;;;;;;
+;;;;;;;;;;;
+Taxon;GDD estimate;GDD p;FDD estimate;FDD p;rho2;Cold & Freezing;Cold & Snowy;Hot & Freezing;Hot & Snowy;;
+Alchemilla catalaunica;0;0.181;-0.06;0.035;0.2;0;39;0;93;;
+Androsace villosa;0.01;<0.001;-0.01;0.438;0.45;37;70;100;100;;
+Arabis alpina;-0.01;0.003;-0.01;0.355;0.22;1;5;0;0;;
+Arenaria grandiflora;0;0.004;-0.01;0.243;0.17;2;10;0;0;;
+Arenaria moehringioides;-0.01;0.001;0.01;0.035;0.36;11;1;0;0;;
+Armeria cantabrica;-0.01;<0.001;-0.01;0.021;0.39;1;24;0;0;;
+Carex sempervirens;0;0.004;-0.02;0.007;0.19;6;79;91;100;;
+Erigeron alpinus;0;0.972;-0.06;0.033;0.19;0;34;0;36;;
+Euphrasia salisburgensis;0;0.116;0.03;<0.001;0.32;98;6;100;84;;
+Festuca glacialis;-0.02;<0.001;0.01;0.467;0.65;0;0;0;0;;
+Festuca hystrix;0.01;<0.001;0;0.685;0.28;20;35;100;100;;
+Galium pyrenaicum;0;0.938;0.03;<0.001;0.37;95;2;96;3;;
+Helianthemum canum;0.01;<0.001;0;0.427;0.39;59;81;100;100;;
+Iberis carnosa;0;0.018;0.02;<0.001;0.28;83;3;1;0;;
+Lotus corniculatus;0;0.035;-0.04;0.049;0.19;0;39;0;99;;
+Scilla verna;0;0.004;-0.05;0.033;0.28;0;46;2;100;;
