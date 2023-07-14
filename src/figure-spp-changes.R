@@ -34,20 +34,20 @@ changespp %>%
   xlab(NULL) +
   ylab("Frequency change (%)") +
   ggthemes::theme_tufte() +
-  theme(text = element_text(family = "sans"),
+  theme(text = element_text(family = "sans", size = 20),
         strip.background = element_blank(),
         legend.position = "none", 
         legend.direction = "vertical",
         legend.title = element_blank(),
-        legend.text = element_text(size = 16, face = "italic"), 
+        legend.text = element_text(size = 18, face = "italic"), 
         panel.background = element_rect(color = "black", fill = NULL),
-        strip.text = element_text(size = 12),
-        axis.title = element_text(size = 12),
-        axis.text.x = element_text(size = 12, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black", face = "italic")) -> F4; F4
+        strip.text = element_text(size = 16),
+        axis.title = element_text(size = 18),
+        axis.text.x = element_text(size = 14, color = "black"),
+        axis.text.y = element_text(size = 14, color = "black", face = "italic")) -> F4; F4
 
-ggsave(F4, file = "results/figures/F4.png", 
-       path = NULL, scale = 1, width = 182, height = 145, units = "mm", dpi = 600)
+ggsave(F4, file = "results/figures/clara changes/F4(3).png", 
+       path = NULL, scale = 1, width = 225, height = 145, units = "mm", dpi = 600)
 
 # figure filtered with less than 10 initial observation + images
 library(cowplot)

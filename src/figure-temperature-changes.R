@@ -17,7 +17,8 @@ decomposer <- function(x)
   df
 }
 
-read.csv("data/temporal-survey-temperatures.csv") %>%
+read.csv("data/temporal-survey-temperatures.csv", sep =";") %>%
+  mutate(Time = strptime(as.character(Time), "%d/%m/%Y %H:%M"))%>%
   mutate(Time = as.POSIXct(Time, tz = "UTC")) %>%
   group_by(Site) %>%
   do(decomposer(.)) %>%
@@ -25,15 +26,20 @@ read.csv("data/temporal-survey-temperatures.csv") %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Los Boches",
                             "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) -> trends
+  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) -> trends
 
 ### Plot trends
+graph_names <- as_labeller (c( "Los Cazadores" ="Los Cazadores \n (Snowbed)", 
+                               "Los Boches" = "Los Boches \n (Snowbed)",
+                               "Ḥou Sin Tierri" = "Ḥou Sin Tierri \n (Fellfield)", 
+                               "Hoyo Sin Tierra" = "Hoyo Sin Tierra \n (Fellfield)"))
 
 trends %>%
   ggplot(aes(Time, Trend)) + 
-  facet_wrap(~ Site, nrow = 1, scales = "free_y") + 
+  facet_wrap(~ Site, nrow = 1, scales = "free_y", labeller = graph_names) + 
   geom_line(color = "firebrick1", alpha = 0.3) +
   geom_smooth(method = "lm", color = "firebrick4") +
+  labs(title = "(A) Temporal trends in soil temperature") +
   xlab("Time (1-h recording inverval)") +
   ylab("Trend (ºC)") +
   ggthemes::theme_tufte() +
@@ -52,7 +58,7 @@ trends %>%
 
 ### Save figure
 
-ggsave(F3A, file = "results/figures/F3A.png", 
+ggsave(F3A, file = "results/figures/clara changes/F3A (2).png", 
        path = NULL, scale = 1, width = 182, height = 182/3, units = "mm", dpi = 600)
 # ggsave(f1, file = "results/figures/temperature-changes.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 127, height = 160, units = "mm", dpi = 600, compression = "lzw")

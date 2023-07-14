@@ -374,26 +374,59 @@ models %>%
   ggplot(aes(Scenario, n, fill = Scenario)) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_bar(stat = "identity", position = "dodge", color = "black") +
-  labs(title = "(A) 0% Occurrence")+
+  labs(title = "(A) Probability of occurrence = 0")+
   xlab("Scenario") +
   ylab("Local extinctions") +
   ggthemes::theme_tufte() +
   scale_fill_manual(values = c("deepskyblue","slateblue3", "indianred","firebrick")) +
   scale_y_continuous(limits =c (0,10) ,breaks = seq(0, 10, by = 1)) +
-  theme(text = element_text(family = "sans"),
+  theme(text = element_text(family = "sans", size = 20),
         strip.background = element_blank(),
         legend.position = "none", 
         legend.direction = "vertical",
         legend.title = element_blank(),
-        legend.text = element_text(size = 16, face = "italic"), 
+        legend.text = element_text(size = 18, face = "italic"), 
         panel.background = element_rect(color = "black", fill = NULL),
-        strip.text = element_text(size = 12),
-        axis.title = element_text(size = 12),
-        axis.text.x = element_text(size = 8, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black")) ->  F5A; F5A
+        strip.text = element_text(size = 16),
+        axis.title = element_text(size = 18),
+        axis.text.x = element_text(size = 14, color = "black"),
+        axis.text.y = element_text(size = 14, color = "black")) ->  F5A; F5A
 
+models %>%
+  filter(`FDD p.value` < 0.05 | `GDD p.value` < 0.05) %>%
+  filter(rho2 > 0.15) %>%
+  dplyr::select(Taxon, `Cold & Freezing`:`Hot & Snowy`) %>%
+  gather(Scenario, Predict, `Cold & Freezing`:`Hot & Snowy`) %>%
+  #filter(Predict == 0) %>% # 100 % threshold
+  filter(Predict <=5) %>% #95% threshold
+  #mutate(Scenario = factor(Scenario, levels = c("Cold & Snowy", "Cold & Freezing","Hot & Snowy", "Hot & Freezing"))) %>%
+  group_by(Scenario) %>%
+  tally %>%
+  mutate(Scenario = gsub(" & ", "\n", Scenario)) %>%
+  mutate(Scenario = factor(Scenario, levels = c("Cold\nSnowy", "Cold\nFreezing","Hot\nSnowy", "Hot\nFreezing"))) %>%
+  ggplot(aes(Scenario, n, fill = Scenario)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  labs(title = "(B) Probability of occurrence 0-5%")+
+  xlab("Scenario") +
+  ylab("Local extinctions") +
+  ggthemes::theme_tufte() +
+  scale_fill_manual(values = c("deepskyblue","slateblue3", "indianred","firebrick")) +
+  scale_y_continuous(limits =c (0,10) ,breaks = seq(0, 10, by = 1)) +
+  theme(text = element_text(family = "sans", size = 20),
+        strip.background = element_blank(),
+        legend.position = "none", 
+        legend.direction = "vertical",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 18, face = "italic"), 
+        panel.background = element_rect(color = "black", fill = NULL),
+        strip.text = element_text(size = 16),
+        axis.title = element_text(size = 18),
+        axis.text.x = element_text(size = 14, color = "black"),
+        axis.text.y = element_text(size = 14, color = "black")) ->  F5B; F5B
 ### Save figure
-cowplot::plot_grid(F5A, F5B,  ncol = 2) -> F5
+x11()
+cowplot::plot_grid(F5A, F5B,  ncol = 2) -> F5; F5
 
-ggsave(F5, file = "results/figures/F5.png", 
+ggsave(F5, file = "results/figures/clara changes/F5(2).png", 
        path = NULL, scale = 1, width = 200, height = 120, units = "mm", dpi = 600)

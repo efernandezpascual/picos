@@ -2,6 +2,10 @@ library(tidyverse); library(urca); library(raster); library(tibbletime); library
 Sys.setlocale("LC_TIME", "English")
 
 ### iButton logs
+graph_names <- as_labeller (c( "Los Cazadores" ="Los Cazadores \n (Snowbed)", 
+                               "Los Boches" = "Los Boches \n (Snowbed)",
+                               "Hou Sin Tierri" = "Hou Sin Tierri \n (Fellfield)", 
+                               "Hoyo Sin Tierra" = "Hoyo Sin Tierra \n (Fellfield)"))
 
 read.csv("data/spatial-survey-temperatures.csv") %>%
   mutate(Time = as.POSIXct(Time, tz = "UTC")) %>% 
@@ -11,7 +15,7 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
                             "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
   mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Time, Temperature, color = Plot)) + 
-  facet_wrap(~ Site, nrow = 1) + 
+  facet_wrap(~ Site, nrow = 1, labeller = graph_names) + 
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_line() +
   labs(title = "(B) Spatial survey (20 iButtons per site, Oct 2018 - Aug 2019)") +
@@ -29,18 +33,22 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
         strip.text = element_text(size = 12),
         axis.title = element_text(size = 12),
         axis.text.x = element_text(size = 8, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black")) -> F2B
+        axis.text.y = element_text(size = 11, color = "black")) -> F2B;F2B
 
 ### Geoprecision logs
+graph_names <- as_labeller (c( "Los Cazadores" ="Los Cazadores \n (Snowbed)", 
+                               "Los Boches" = "Los Boches \n (Snowbed)",
+                               "Hou Sin Tierri" = "Hou Sin Tierri \n (Fellfield)", 
+                               "Hoyo Sin Tierra" = "Hoyo Sin Tierra \n (Fellfield)"))
 
-read.csv("data/temporal-survey-temperatures.csv") %>% 
+read.csv("data/temporal-survey-temperatures.csv", sep= ";") %>% 
   mutate(Time = as.POSIXct(Time, tz = "UTC")) %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Los Boches",
                             "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
   mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Time, Temperature)) + 
-  facet_wrap(~ Site, nrow = 1) + 
+  facet_wrap(~ Site, nrow = 1, labeller = graph_names) + 
   geom_line(color = "red") +
   labs(title = "(A) Temporal survey (2009-2018)") +
   xlab("Time (1-h recording inverval)") +
@@ -58,15 +66,15 @@ read.csv("data/temporal-survey-temperatures.csv") %>%
         strip.text = element_text(size = 12),
         axis.title = element_text(size = 12),
         axis.text.x = element_text(size = 8, color = "black"),
-        axis.text.y = element_text(size = 11, color = "black")) -> F2A
+        axis.text.y = element_text(size = 11, color = "black")) -> F2A;F2A
 
 ### Combine panels
 
-cowplot::plot_grid(F2A, F2B, ncol = 1) -> F2
+cowplot::plot_grid(F2A, F2B, ncol = 1) -> F2; F2
 
 ### Save figure
 
-ggsave(F2, file = "results/figures/F2.png", 
+ggsave(F2, file = "results/figures/clara changes/F2(2).png", 
        path = NULL, scale = 1, width = 182, height = 140, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/temperature-logs.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 160, units = "mm", dpi = 600, compression = "lzw")
