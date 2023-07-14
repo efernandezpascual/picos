@@ -37,7 +37,7 @@ vegan::scores(nmds, "sites") %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Hou Sin Tierri",
                             "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) -> sitescores
+  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) -> sitescores
 
 ### Species scores
 
@@ -108,7 +108,7 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
 
 ### Save figure
 
-ggsave(f1d, file = "results/figures/F4 - NMDS_cl.png", 
+ggsave(f1d, file = "results/figures/F4 - NMDS_cl (H).png", 
        path = NULL, scale = 1, width = 182, height = 120, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/nmds-species.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182 height = 182, units = "mm", dpi = 600, compression = "lzw")

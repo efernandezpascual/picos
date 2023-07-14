@@ -4,7 +4,7 @@ Sys.setlocale("LC_TIME", "English")
 ### iButton logs
 graph_names <- as_labeller (c( "Los Cazadores" ="Los Cazadores \n (Snowbed)", 
                                "Los Boches" = "Los Boches \n (Snowbed)",
-                               "Hou Sin Tierri" = "Hou Sin Tierri \n (Fellfield)", 
+                               "Ḥou Sin Tierri" = "Ḥou Sin Tierri \n (Fellfield)", 
                                "Hoyo Sin Tierra" = "Hoyo Sin Tierra \n (Fellfield)"))
 
 read.csv("data/spatial-survey-temperatures.csv") %>%
@@ -13,7 +13,7 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Los Boches",
                             "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) %>%
+  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Time, Temperature, color = Plot)) + 
   facet_wrap(~ Site, nrow = 1, labeller = graph_names) + 
   geom_hline(yintercept = 0, linetype = "dashed") +
@@ -38,15 +38,15 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
 ### Geoprecision logs
 graph_names <- as_labeller (c( "Los Cazadores" ="Los Cazadores \n (Snowbed)", 
                                "Los Boches" = "Los Boches \n (Snowbed)",
-                               "Hou Sin Tierri" = "Hou Sin Tierri \n (Fellfield)", 
+                               "Ḥou Sin Tierri" = "Ḥou Sin Tierri \n (Fellfield)", 
                                "Hoyo Sin Tierra" = "Hoyo Sin Tierra \n (Fellfield)"))
 
 read.csv("data/temporal-survey-temperatures.csv", sep= ";") %>% 
-  mutate(Time = as.POSIXct(Time, tz = "UTC")) %>%
+  mutate(Time = as.POSIXct(Time, tz = "UTC", format = "%d/%m/%Y %H:%M")) %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Los Boches",
                             "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) %>%
+  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Time, Temperature)) + 
   facet_wrap(~ Site, nrow = 1, labeller = graph_names) + 
   geom_line(color = "red") +
@@ -74,7 +74,7 @@ cowplot::plot_grid(F2A, F2B, ncol = 1) -> F2; F2
 
 ### Save figure
 
-ggsave(F2, file = "results/figures/clara changes/F2(2).png", 
+ggsave(F2, file = "results/figures/clara changes/F2(H).png", 
        path = NULL, scale = 1, width = 182, height = 140, units = "mm", dpi = 600)
 # ggsave(fig, file = "results/figures/temperature-logs.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 182, height = 160, units = "mm", dpi = 600, compression = "lzw")

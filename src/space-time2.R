@@ -31,14 +31,14 @@ rbind(temporal, spatial) -> temps
 
 graph_names <- as_labeller (c( "Los Cazadores" ="Los Cazadores \n (Snowbed)", 
                                "Los Boches" = "Los Boches \n (Snowbed)",
-                               "Hou Sin Tierri" = "Hou Sin Tierri \n (Fellfield)", 
+                               "Ḥou Sin Tierri" = "Ḥou Sin Tierri \n (Fellfield)", 
                                "Hoyo Sin Tierra" = "Hoyo Sin Tierra \n (Fellfield)"))
 
 temps %>%  
   mutate(Site = fct_relevel(Site,
                                      "Los Cazadores", "Los Boches",
                                      "Hou Sin Tierri", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Hou Sin Tierri" = "Hou Sin Tierri")) %>%
+  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Survey, Temperature, color = Survey, fill = Survey)) + 
   geom_jitter(shape = 16, position = position_jitter(0.15), alpha = 0.1) +
   geom_violin(alpha = 0.05, draw_quantiles = c(0.25, 0.5, 0.75), color = "black") +
@@ -79,5 +79,5 @@ ggarrange(F3A, F3B, nrow = 2, heights = c(1.5,3))->F3;F3
 
 ### Save figure
 
-ggsave(F3, file = "results/figures/clara changes/F3 (2).png", 
+ggsave(F3, file = "results/figures/clara changes/F3 (H).png", 
        path = NULL, scale = 1, width = 182, height = 160, units = "mm", dpi = 600)
