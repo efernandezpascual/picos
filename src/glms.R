@@ -10,7 +10,7 @@ read.csv("data/spatial-survey-species.csv") %>%
   select(Plot, Taxon, Presence) %>%
   spread(Taxon, Presence, fill = 0) %>%
   gather(Taxon, Presence, -Plot) %>%
-  merge(read.csv("results/supplement/S1 - Bioclimatic indices.csv")) -> presences
+  merge(read.csv("results/supplement/Table S1 - Bioclimatic indices.csv", sep = ";")) -> presences
 
 ### Get GLM coefficients
 
@@ -58,12 +58,12 @@ presences %>%
 ### Scenarios
 
 merge(
-read.csv("results/supplement/S1 - Bioclimatic indices.csv") %>%
+  read.csv("results/supplement/Table S1 - Bioclimatic indices.csv", sep = ";") %>%
   select(Survey, GDD) %>%
   filter(Survey == "Temporal") %>%
   # group_by(Survey) %>%
   filter(GDD == max(GDD) | GDD == min(GDD)),
-read.csv("results/supplement/S1 - Bioclimatic indices.csv") %>%
+  read.csv("results/supplement/Table S1 - Bioclimatic indices.csv", sep = ";") %>%
   select(Survey, FDD) %>%
   filter(Survey == "Temporal") %>%
   # group_by(Survey) %>%
@@ -380,15 +380,15 @@ models %>%
   ggthemes::theme_tufte() +
   scale_fill_manual(values = c("deepskyblue","slateblue3", "indianred","firebrick")) +
   scale_y_continuous(limits =c (0,10) ,breaks = seq(0, 10, by = 1)) +
-  theme(text = element_text(family = "sans", size = 20),
+  theme(text = element_text(family = "sans", size = 12),
         strip.background = element_blank(),
         legend.position = "none", 
         legend.direction = "vertical",
         legend.title = element_blank(),
-        legend.text = element_text(size = 18, face = "italic"), 
+        legend.text = element_text(size = 14, face = "italic"), 
         panel.background = element_rect(color = "black", fill = NULL),
-        strip.text = element_text(size = 16),
-        axis.title = element_text(size = 18),
+        strip.text = element_text(size = 14),
+        axis.title = element_text(size = 14),
         axis.text.x = element_text(size = 14, color = "black"),
         axis.text.y = element_text(size = 14, color = "black")) ->  F5A; F5A
 
@@ -413,20 +413,20 @@ models %>%
   ggthemes::theme_tufte() +
   scale_fill_manual(values = c("deepskyblue","slateblue3", "indianred","firebrick")) +
   scale_y_continuous(limits =c (0,10) ,breaks = seq(0, 10, by = 1)) +
-  theme(text = element_text(family = "sans", size = 20),
+  theme(text = element_text(family = "sans", size = 12),
         strip.background = element_blank(),
         legend.position = "none", 
         legend.direction = "vertical",
         legend.title = element_blank(),
-        legend.text = element_text(size = 18, face = "italic"), 
+        legend.text = element_text(size = 14, face = "italic"), 
         panel.background = element_rect(color = "black", fill = NULL),
-        strip.text = element_text(size = 16),
-        axis.title = element_text(size = 18),
+        strip.text = element_text(size = 14),
+        axis.title = element_text(size = 14),
         axis.text.x = element_text(size = 14, color = "black"),
         axis.text.y = element_text(size = 14, color = "black")) ->  F5B; F5B
 ### Save figure
 x11()
 cowplot::plot_grid(F5A, F5B,  ncol = 2) -> F5; F5
 
-ggsave(F5, file = "results/figures/clara changes/F5(2).png", 
+ggsave(F5, file = "results/figures/F5.png", 
        path = NULL, scale = 1, width = 200, height = 120, units = "mm", dpi = 600)
