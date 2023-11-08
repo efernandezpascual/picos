@@ -36,7 +36,7 @@ graph_names <- as_labeller (c( "Los Cazadores" ="Los Cazadores \n (Snowbed)",
 
 trends %>%
   ggplot(aes(Time, Trend)) + 
-  facet_wrap(~ Site, nrow = 1, scales = "free_y", labeller = graph_names) + 
+  facet_wrap(~ Site, nrow = 1, scales = "fixed", labeller = graph_names) + 
   geom_line(color = "firebrick1", alpha = 0.3) +
   geom_smooth(method = "lm", color = "firebrick4") +
   labs(title = "(A) Temporal trends in soil temperature") +
@@ -55,10 +55,34 @@ trends %>%
         axis.text.x = element_text(size = 7, color = "black"),
         axis.text.y = element_text(size = 11, color = "black")) -> F3A; F3A
 
+# Slopes
+
+glms <- function(x) {
+  lm(Trend ~ Time, data = x) -> m1
+  broom::tidy(m1)
+}
+
+trends %>%
+  mutate(Time2 = Time - years(2009)) %>%
+  group_by(Site) %>%
+  do(glms(.))
+
+trends %>%
+  group_by(Site, Year = lubridate::floor_date(Time, "year")) %>%
+  summarise(n = mean(Temperature)) %>%
+  group_by(Site) %>%
+  mutate(cs = n - lag(n)) %>%  
+  summarise(n = mean(cs, na.rm = TRUE))
+
+trends %>%
+  group_by(Site, Year = lubridate::floor_date(Time, "year")) %>%
+  summarise(n = mean(Temperature)) %>%
+  group_by(Site) %>%
+  summarise(minimo = min(n), maximo = max(n), diferencia = max(n) - min(n))
 
 ### Save figure
 
-ggsave(F3A, file = "results/figures/clara changes/F3A (2).png", 
+ggsave(F3A, file = "results/figures/clara changes/F3A (3).png", 
        path = NULL, scale = 1, width = 182, height = 182/3, units = "mm", dpi = 600)
 # ggsave(f1, file = "results/figures/temperature-changes.tiff", device = grDevices::tiff, 
 #        path = NULL, scale = 1, width = 127, height = 160, units = "mm", dpi = 600, compression = "lzw")

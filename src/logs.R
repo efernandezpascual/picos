@@ -13,16 +13,24 @@ read.csv("data/spatial-survey-temperatures.csv") %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Los Boches",
                             "Hou Sin Tierri","Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
-  ggplot(aes(Time, Temperature, color = Plot)) + 
+  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) -> spatial1
+  
+spatial1 %>% 
+  group_by(Time = lubridate::floor_date(Time, "day"), Site) %>%
+  summarise(Temperature = mean(Temperature)) -> spatial2
+
+spatial1 %>%
+  ggplot(aes(Time, Temperature, color = Site)) + 
   facet_wrap(~ Site, nrow = 1, labeller = graph_names) + 
   geom_hline(yintercept = 0, linetype = "dashed") +
-  geom_line() +
+  geom_line(linewidth = .05, alpha = 0.5) +
+  geom_line(data = spatial2, linewidth = .5) +
   labs(title = "(B) Spatial survey (20 iButtons per site, Oct 2018 - Aug 2019)") +
   xlab("Time (4-h recording inverval)") +
   ylab("Temperature (ºC)") +
   ggthemes::theme_tufte() +
   coord_cartesian(ylim = c(-10, 30)) +
+  scale_color_manual(values = c("darkorange1", "dodgerblue4", "limegreen",  "deeppink4")) +
   theme(text = element_text(family = "sans"),
         strip.background = element_blank(),
         legend.position = "none", 
@@ -49,7 +57,7 @@ read.csv("data/temporal-survey-temperatures.csv", sep= ";") %>%
   mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) %>%
   ggplot(aes(Time, Temperature)) + 
   facet_wrap(~ Site, nrow = 1, labeller = graph_names) + 
-  geom_line(color = "red") +
+  geom_line(color = "red", linewidth = .1) +
   labs(title = "(A) Temporal survey (2009-2018)") +
   xlab("Time (1-h recording inverval)") +
   ylab("Temperature (ºC)") +

@@ -9,11 +9,11 @@ read.csv("data/spatial-survey-species.csv") %>%
   arrange(Plot) %>%
   column_to_rownames(var = "Plot") -> species 
 
-### Header data
-
-read.csv("data/spatial-survey-header.csv") %>% 
-  mutate(Survey = "Spatial") %>%
-  merge(read.csv("results/supplement/S1 - Bioclimatic indices.csv")) -> header 
+# ### Header data
+# 
+# read.csv("data/spatial-survey-header.csv") %>% 
+#   mutate(Survey = "Spatial") %>%
+#   merge(read.csv("results/supplement/S1 - Bioclimatic indices.csv")) -> header 
 
 # GDD >5
 read.csv("data/spatial-survey-header.csv") %>% 
@@ -37,7 +37,10 @@ vegan::scores(nmds, "sites") %>%
   mutate(Site = fct_relevel(Site,
                             "Los Cazadores", "Hou Sin Tierri",
                             "Los Boches", "Hoyo Sin Tierra")) %>%
-  mutate(Site = fct_recode(Site, "Ḥou Sin Tierri" = "Hou Sin Tierri")) -> sitescores
+  mutate(Site = fct_recode(Site, "1 Los Cazadores" = "Los Cazadores"))%>%
+  mutate(Site = fct_recode(Site, "2 Ḥou Sin Tierri" = "Hou Sin Tierri"))%>%
+  mutate(Site = fct_recode(Site, "3 Los Boches" = "Los Boches"))%>%
+  mutate(Site = fct_recode(Site, "4 Hoyo Sin Tierra" = "Hoyo Sin Tierra")) -> sitescores
 
 ### Species scores
 
@@ -100,7 +103,7 @@ ggplot(sitescores, aes(x = Dim.1, y = Dim.2)) +
   coord_cartesian(xlim = c(-1.1, 1), ylim = c(-1, 1)) +
   scale_x_continuous(name = "NMDS1") + 
   scale_y_continuous(name = "NMDS2") +
-  scale_fill_manual(values = c("gold", "#B3EE3A",  "#40E0D0", "#551A8B")) +
+  scale_fill_manual(values = c("darkorange1", "dodgerblue4", "limegreen",  "deeppink4")) +
   annotate("label", x = -.8, y = 1, label = "Hot & Snowy", fill = "indianred", color = "white", size = 4) +
   annotate("label", x = .7, y = 1, label = "Cold & Snowy", fill = "deepskyblue", color = "white", size = 4) +
   annotate("label", x = -.8, y = -1, label = "Hot & Freezing", fill = "firebrick", color = "white", size = 4) +
