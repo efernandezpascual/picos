@@ -2,17 +2,17 @@ library(tidyverse); library(raster); library(tibbletime); library(lubridate); li
 
 ### Raster with elevation for Picos area
 
-# raster::raster("../#data/maps/picos/DEM/DEM.TIF") %>% # Map files are in my home drive
-#   rasterToPoints() %>%
-#   as.data.frame() %>%
-#   rename(lon = x, lat = y, alt = DEM) -> dem 
+raster::raster("../#data/maps/picos/DEM/DEM.TIF") %>% # Map files are in my home drive
+  rasterToPoints() %>%
+  as.data.frame() %>%
+  rename(lon = x, lat = y, alt = DEM) -> dem
 
 ### Raster with elevation for Picos area
 
-raster::raster("C:/Users/Usuario/OneDrive - Universidad de Oviedo/IMIB/Softwares/GitHub/picos/data/picos/DEM/DEM.TIF") %>% # Map files are in my home drive
-  rasterToPoints() %>%
-  as.data.frame() %>%
-  rename(lon = x, lat = y, alt = DEM) -> dem 
+# raster::raster("C:/Users/Usuario/OneDrive - Universidad de Oviedo/IMIB/Softwares/GitHub/picos/data/picos/DEM/DEM.TIF") %>% # Map files are in my home drive
+#   rasterToPoints() %>%
+#   as.data.frame() %>%
+#   rename(lon = x, lat = y, alt = DEM) -> dem 
 
 
 ### Site coordinates
@@ -25,16 +25,16 @@ read.csv("data/temporal-survey-header.csv") %>%
 
 ### Panel A - Map of Europe
 
-# rgdal::readOGR(dsn = "../#data/maps/WWF", 
-#                layer = "wwf_terr_ecos") -> Ecoregions # Map files are in my home drive
-rgdal::readOGR(dsn = "data/maps/WWF", 
+rgdal::readOGR(dsn = "../#data/maps/WWF",
                layer = "wwf_terr_ecos") -> Ecoregions # Map files are in my home drive
+# rgdal::readOGR(dsn = "data/maps/WWF", 
+#                layer = "wwf_terr_ecos") -> Ecoregions # Map files are in my home drive
 rownames(Ecoregions@data) -> Ecoregions@data$id
 fortify(Ecoregions, region = "id") -> Ecoregions.points 
-# plyr::join(Ecoregions.points, Ecoregions@data, by = "id") %>%
-#   inner_join(read.csv("../#data/maps/Biomes.csv"), by = "BIOME") -> land
 plyr::join(Ecoregions.points, Ecoregions@data, by = "id") %>%
-  inner_join(read.csv("data/maps/Biomes.csv"), by = "BIOME") -> land
+  inner_join(read.csv("../#data/maps/Biomes.csv"), by = "BIOME") -> land
+# plyr::join(Ecoregions.points, Ecoregions@data, by = "id") %>%
+#   inner_join(read.csv("data/maps/Biomes.csv"), by = "BIOME") -> land
 
 read.csv("data/temporal-survey-header.csv") %>%
   summarise(long = mean(Longitude), lat = mean(Latitude)) %>%
@@ -148,7 +148,7 @@ cpplots %>%
 cowplot::plot_grid(f1a, f1b, f1c,  ncol = 3) -> f1abc
 #cowplot::plot_grid(f1abc, f1d,  ncol = 1) -> F1
 ggarrange(f1abc, f1d, nrow = 2, heights = c(1.5,2.5))->F1; F1
-x11()
+# x11()
 ### Save figure
 
 ggsave(F1, file = "results/figures/F1.png", 
