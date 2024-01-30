@@ -3,7 +3,7 @@ README.md
 
 ![](hou.jpg)
 
-# Microclimatic buffering prevents homogenization of relict alpine communities
+# Spatiotemporal patterns of microclimatic buffering in relict alpine communities
 
 ## Contents
 
@@ -26,5 +26,5 @@ The following materials are available in the folders of this repository:
 Please cite this repository as:
 
 > Jiménez-Alfaro B, Fernández-Pascual E, Espinosa del Alba C, Marcenò C
-> (2023) Microclimatic buffering prevents homogenization of relict
+> (2023) Spatiotemporal patterns of microclimatic buffering in relict
 > alpine communities.
